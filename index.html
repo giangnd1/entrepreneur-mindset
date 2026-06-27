@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entrepreneur Mindset — Nhãn Quan Người Làm Kinh Doanh</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1B3A5C;
+    --navy-light: #2C5282;
+    --orange: #E8621A;
+    --orange-light: #FF8C42;
+    --cream: #FAFAF8;
+    --warm: #FFF3E0;
+    --warm2: #FEF9F0;
+    --text: #1A1A2E;
+    --muted: #6B7280;
+    --border: #E5E7EB;
+    --gold: #D4A017;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #0F2744 60%, #162B47 100%);
+    color: white;
+    padding: 64px 40px 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -60px; right: -60px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(232,98,26,0.18) 0%, transparent 70%);
+  }
+  .hero::after {
+    content: '◎';
+    position: absolute; bottom: 20px; right: 48px;
+    font-size: 120px;
+    color: rgba(232,98,26,0.08);
+    font-family: 'Playfair Display', serif;
+    line-height: 1;
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--orange-light);
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 58px);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .hero h1 span { color: var(--orange-light); }
+  .hero-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 28px;
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+  }
+  .hero-desc {
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+    max-width: 600px;
+    line-height: 1.75;
+    border-left: 3px solid var(--orange);
+    padding-left: 16px;
+  }
+  .hero-stats {
+    display: flex; gap: 32px; margin-top: 32px; flex-wrap: wrap;
+  }
+  .hero-stat { text-align: center; }
+  .hero-stat .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; font-weight: 700;
+    color: var(--orange-light);
+  }
+  .hero-stat .lbl {
+    font-size: 11px; color: rgba(255,255,255,0.5);
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+
+  /* CONTROLS */
+  .controls {
+    background: white;
+    border-bottom: 1px solid var(--border);
+    padding: 16px 40px;
+    position: sticky; top: 0; z-index: 100;
+    display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+  }
+  .search-wrap {
+    position: relative; flex: 0 0 260px;
+  }
+  .search-wrap input {
+    width: 100%;
+    padding: 9px 12px 9px 36px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    outline: none;
+    transition: border 0.2s;
+  }
+  .search-wrap input:focus { border-color: var(--navy); }
+  .search-icon {
+    position: absolute; left: 11px; top: 50%; transform: translateY(-50%);
+    color: var(--muted); font-size: 14px;
+  }
+  .filters { display: flex; gap: 6px; flex-wrap: wrap; flex: 1; }
+  .filter-btn {
+    padding: 7px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 20px;
+    background: white;
+    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    color: var(--muted);
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .filter-btn:hover { border-color: var(--navy); color: var(--navy); }
+  .filter-btn.active {
+    background: var(--navy); border-color: var(--navy);
+    color: white;
+  }
+  .count-label {
+    font-size: 12px; color: var(--muted);
+    white-space: nowrap; margin-left: auto;
+  }
+
+  /* GRID */
+  .grid-wrap { padding: 32px 40px; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    align-items: start;
+  }
+
+  /* CARD */
+  .card {
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
+    position: relative;
+  }
+  .card:hover {
+    border-color: var(--navy-light);
+    box-shadow: 0 4px 20px rgba(27,58,92,0.1);
+    transform: translateY(-2px);
+  }
+  .card.open {
+    border-color: var(--orange);
+    box-shadow: 0 8px 32px rgba(232,98,26,0.12);
+    transform: none;
+  }
+  .card-header {
+    padding: 18px 20px 16px;
+    display: flex; align-items: flex-start; gap: 12px;
+  }
+  .card-num {
+    font-size: 10px; font-weight: 700;
+    color: var(--orange);
+    background: var(--warm);
+    padding: 3px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .card-titles { flex: 1; }
+  .card-vn {
+    font-size: 14px; font-weight: 600;
+    color: var(--navy);
+    font-family: 'Playfair Display', serif;
+    line-height: 1.3;
+  }
+  .card-en {
+    font-size: 11px; color: var(--muted);
+    margin-top: 2px; font-style: italic;
+  }
+  .card-tag {
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 600;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .card-toggle {
+    font-size: 16px; color: var(--muted);
+    flex-shrink: 0; margin-top: 2px;
+    transition: transform 0.22s;
+  }
+  .card.open .card-toggle { transform: rotate(45deg); color: var(--orange); }
+
+  .card-teaser {
+    padding: 0 20px 16px;
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.55;
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+    margin-top: -4px;
+  }
+  .card.open .card-teaser { display: none; }
+
+  /* EXPANDED */
+  .card-body {
+    display: none;
+    padding: 0 20px 24px;
+    border-top: 2px solid var(--warm);
+    margin-top: -4px;
+  }
+  .card.open .card-body { display: block; }
+
+  .card-body-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 20px;
+  }
+  .body-section h4 {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--orange);
+    margin-bottom: 10px;
+  }
+  .body-section p {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #374151;
+  }
+  .body-section p b {
+    color: var(--navy);
+    font-weight: 700;
+  }
+  .example-box {
+    background: var(--warm2);
+    border-left: 3px solid var(--orange);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 16px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #374151;
+  }
+  .example-box b { color: var(--navy); font-weight: 700; }
+  .mental-models {
+    margin-top: 16px;
+    display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+  }
+  .mental-models-label {
+    font-size: 11px; font-weight: 600;
+    color: var(--muted); text-transform: uppercase; letter-spacing: 1px;
+  }
+  .mm-tag {
+    font-size: 11px;
+    padding: 3px 10px;
+    background: #EFF6FF;
+    color: var(--navy-light);
+    border-radius: 10px;
+    font-weight: 500;
+    border: 1px solid #DBEAFE;
+  }
+  .principle-strip {
+    background: linear-gradient(90deg, var(--navy) 0%, var(--navy-light) 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 12px 18px;
+    font-size: 12.5px;
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+    margin-top: 4px;
+  }
+  .principle-strip::before { content: '◎ '; color: var(--orange-light); }
+
+  /* CATEGORY COLORS */
+  .cat-co-hoi { background: #FEF3C7; color: #92400E; }
+  .cat-mo-hinh { background: #D1FAE5; color: #065F46; }
+  .cat-tam-ly { background: #EDE9FE; color: #4C1D95; }
+  .cat-tai-chinh { background: #DBEAFE; color: #1E40AF; }
+  .cat-chien-luoc { background: #FCE7F3; color: #831843; }
+  .cat-lanh-dao { background: #FEE2E2; color: #991B1B; }
+  .cat-doi-moi { background: #D1FAE5; color: #065F46; }
+
+  /* NO RESULTS */
+  .no-results {
+    text-align: center; padding: 60px 20px;
+    grid-column: 1 / -1;
+    color: var(--muted);
+  }
+  .no-results span { font-size: 40px; display: block; margin-bottom: 12px; }
+
+  @media (max-width: 900px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+  
+    .hero, .grid-wrap, .controls { padding-left: 20px; padding-right: 20px; }
+  }
+  @media (max-width: 600px) {
+    .grid { grid-template-columns: 1fr; }
+    .card-body-inner { grid-template-columns: 1fr; }
+    .controls { padding: 12px 16px; }
+    .filters { gap: 4px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">◎ Nhãn quan kinh doanh</div>
+  <h1>Entrepreneur<br><span>Mindset</span></h1>
+  <div class="hero-sub">Cách người làm kinh doanh nhìn thế giới khác biệt như thế nào?</div>
+  <div class="hero-desc">
+    Một doanh nhân không chỉ thấy vấn đề — họ thấy <strong>cơ hội ẩn trong vấn đề</strong>. Không chỉ thấy rủi ro — họ thấy <strong>đòn bẩy để tạo ra giá trị</strong>. Bộ từ điển này là bản đồ tư duy của những người dám xây dựng điều gì đó từ con số không.
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="num">100</div><div class="lbl">Khái niệm cốt lõi</div></div>
+    <div class="hero-stat"><div class="num">7</div><div class="lbl">Chủ đề lớn</div></div>
+    <div class="hero-stat"><div class="num">50+</div><div class="lbl">Mental models</div></div>
+  </div>
+</div>
+
+<!-- CONTROLS -->
+<div class="controls">
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="searchInput" placeholder="Tìm khái niệm..." oninput="filterCards()">
+  </div>
+  <div class="filters">
+    <button class="filter-btn active" onclick="setFilter('all', this)">Tất cả</button>
+    <button class="filter-btn" onclick="setFilter('co-hoi', this)">🔭 Nhìn thấy cơ hội</button>
+    <button class="filter-btn" onclick="setFilter('mo-hinh', this)">⚙️ Mô hình kinh doanh</button>
+    <button class="filter-btn" onclick="setFilter('tam-ly', this)">🧠 Tâm lý & Mindset</button>
+    <button class="filter-btn" onclick="setFilter('tai-chinh', this)">💰 Tài chính & Đòn bẩy</button>
+    <button class="filter-btn" onclick="setFilter('chien-luoc', this)">♟️ Chiến lược</button>
+    <button class="filter-btn" onclick="setFilter('lanh-dao', this)">🦁 Lãnh đạo & Đội ngũ</button>
+    <button class="filter-btn" onclick="setFilter('doi-moi', this)">🚀 Đổi mới & Tăng trưởng</button>
+  </div>
+  <div class="count-label" id="countLabel">100 khái niệm</div>
+</div>
+
+<!-- GRID -->
+<div class="grid-wrap">
+  <div class="grid" id="cardGrid"></div>
+</div>
+
+<script>
+const CARDS = [
+  // ====== CƠ HỘI ======
+  {
+    id: 1, cat: 'co-hoi',
+    vn: 'Nhãn quan cơ hội', en: 'Opportunity Lens',
+    teaser: 'Khả năng nhìn thấy tiềm năng kinh doanh trong những điều người khác bỏ qua.',
+    detail: 'Nhãn quan cơ hội (<em>Opportunity Lens</em>) là <b>khả năng quan sát thực tế với đôi mắt của người tạo ra giá trị</b> — không phải chỉ thấy thứ đang có, mà thấy thứ có thể được xây dựng. Đây là nền tảng của tư duy doanh nhân: khi người bình thường thấy một hàng chờ dài, doanh nhân thấy cơ hội cải thiện trải nghiệm. Khi người bình thường thấy sự bất tiện, doanh nhân thấy một sản phẩm cần tồn tại.',
+    example: '<b>Travis Kalanick</b> đứng ngoài trời lạnh ở Paris, không bắt được taxi. Hầu hết mọi người chỉ thấy sự khó chịu nhất thời. Ông thấy một thị trường bị vỡ vụn trên toàn cầu — và đó là khoảnh khắc <b>Uber</b> ra đời.',
+    models: ['Vấn đề = Cơ hội', 'Đảo ngược vấn đề (Inversion)', 'Tư duy từ đầu tiên (First Principles)']
+  },
+  {
+    id: 2, cat: 'co-hoi',
+    vn: 'Điểm đau thị trường', en: 'Market Pain Point',
+    teaser: 'Nỗi bất tiện, thất vọng hoặc thiếu hụt mà khách hàng đang chịu đựng — đây là nơi kinh doanh bắt đầu.',
+    detail: '<b>Điểm đau</b> (<em>Pain Point</em>) là <b>nguồn nhiên liệu nguyên sơ của mọi doanh nghiệp thành công</b>. Có ba cấp độ: <b>đau bề mặt</b> (bất tiện nhỏ), <b>đau sâu</b> (tổn thất tài chính hoặc thời gian), và <b>đau tồn tại</b> (đe dọa sự sống còn). Sản phẩm giải quyết đau càng sâu thì khách hàng càng sẵn lòng trả tiền mà không cần thuyết phục.',
+    example: 'Doanh nghiệp phần mềm kế toán nhỏ lẻ phải nhập tay hàng trăm hóa đơn mỗi tháng — mất 3 ngày làm việc thuần túy. Đây là đau sâu. <b>MISA</b>, <b>Fast Accounting</b> xây cả đế chế từ điểm đau này.',
+    models: ['Phân cấp nhu cầu Maslow', 'Jobs-to-be-Done', 'Bản đồ đồng cảm (Empathy Map)']
+  },
+  {
+    id: 3, cat: 'co-hoi',
+    vn: 'Thị trường ngách', en: 'Niche Market',
+    teaser: 'Phân khúc khách hàng nhỏ nhưng có nhu cầu đặc biệt rõ ràng và sẵn lòng trả giá cao.',
+    detail: 'Nguyên lý của <b>thị trường ngách</b>: <b>thà là số 1 trong ao nhỏ hơn là số 100 trong đại dương</b>. Doanh nhân khôn ngoan không cạnh tranh trực tiếp với ông lớn mà tìm điểm mù của họ — những nhóm khách hàng nhỏ nhưng cực kỳ cụ thể mà doanh nghiệp lớn không thể hoặc không muốn phục vụ tốt. Từ ngách, mới mở rộng ra đại trà.',
+    example: '<b>Glossier</b> không cố trở thành L\'Oreal ngay từ đầu. Họ chỉ phục vụ nhóm phụ nữ 20-35 tuổi muốn trang điểm tự nhiên như "không trang điểm". Từ ngách đó họ xây dựng cộng đồng 2 triệu người trước khi mở rộng.',
+    models: ['Chiến lược Đại dương Xanh', 'Thuyết khuếch tán đổi mới', 'Quy tắc 1000 người hâm mộ thực sự']
+  },
+  {
+    id: 4, cat: 'co-hoi',
+    vn: 'Xu hướng vĩ mô', en: 'Macro Trend',
+    teaser: 'Các lực lượng xã hội, công nghệ, kinh tế, chính trị đang thay đổi quy mô lớn — doanh nhân lướt sóng thay vì chống lại chúng.',
+    detail: '<b>Xu hướng vĩ mô</b> là những làn sóng ngầm khổng lồ mà nếu doanh nghiệp đi cùng chiều thì tiến gấp đôi, ngược chiều thì tiêu hao gấp đôi. Khung phân tích <b>PESTLE</b> (Chính trị, Kinh tế, Xã hội, Công nghệ, Pháp lý, Môi trường) giúp nhận diện xu hướng. Doanh nhân nhìn xa 5-10 năm không phải để tiên tri mà để <b>định vị doanh nghiệp nằm trên đường di chuyển của xu hướng</b>.',
+    example: 'Khi dân số già hóa ở châu Á là xu hướng nhân khẩu học không thể đảo ngược, hàng ngàn doanh nghiệp y tế, dưỡng lão, phục hồi chức năng sẽ có gió thổi theo lưng trong 20 năm tới — không cần marketing nhiều, thị trường tự đến.',
+    models: ['Phân tích PESTLE', 'Đường cong S (S-Curve)', 'Thuyết chu kỳ Kondratiev']
+  },
+  {
+    id: 5, cat: 'co-hoi',
+    vn: 'Khoảng trắng thị trường', en: 'Market White Space',
+    teaser: 'Nhu cầu chưa được phục vụ hoặc phục vụ kém — đây là lãnh thổ chưa ai cắm cờ.',
+    detail: '<b>Khoảng trắng</b> xuất hiện khi có nhu cầu thực sự tồn tại nhưng chưa có sản phẩm/dịch vụ phù hợp để đáp ứng, hoặc các giải pháp hiện tại quá đắt, quá phức tạp, hoặc không tiếp cận được nhóm khách hàng đó. Doanh nhân tìm khoảng trắng bằng cách <b>quan sát hành vi thực tế</b> (người ta đang "hack" xung quanh vấn đề như thế nào?) thay vì chỉ hỏi khách hàng họ muốn gì.',
+    example: '<b>Canva</b> nhìn thấy khoảng trắng giữa Photoshop phức tạp dành cho chuyên gia và nhu cầu thiết kế đơn giản của hàng triệu người dùng phổ thông. Khoảng trắng đó trị giá 40 tỷ đô.',
+    models: ['Chiến lược Đại dương Xanh', 'Đổi mới gián đoạn (Disruptive Innovation)', 'Quan sát dân tộc học']
+  },
+  {
+    id: 6, cat: 'co-hoi',
+    vn: 'Cửa sổ cơ hội', en: 'Window of Opportunity',
+    teaser: 'Khoảng thời gian ngắn mà điều kiện thị trường cho phép một cơ hội kinh doanh cụ thể tồn tại — trước khi đóng lại.',
+    detail: '<b>Cửa sổ cơ hội</b> nhắc nhở doanh nhân rằng thời điểm cũng là một nguồn lực có hạn. Cửa sổ mở khi: công nghệ mới xuất hiện, quy định thay đổi, đối thủ yếu đi, hoặc hành vi người dùng dịch chuyển. Cửa sổ đóng khi: đối thủ lớn tham chiến, thị trường bão hòa, hoặc công nghệ bị thay thế. Hành động trong cửa sổ hẹp đòi hỏi <b>tốc độ thực thi</b> hơn là sự hoàn hảo.',
+    example: 'Khi <b>TikTok</b> bị cấm tại Mỹ năm 2024, cửa sổ cơ hội mở ra cho các ứng dụng video ngắn. Những startup đã sẵn sàng thì hưởng lợi ngay — trong khi kẻ còn đang lên kế hoạch thì cửa sổ đóng lại.',
+    models: ['Ma trận Eisenhower', 'Thiên kiến hành động (Action Bias)', 'Đường cong S']
+  },
+  {
+    id: 7, cat: 'co-hoi',
+    vn: 'Đột phá từ dưới lên', en: 'Disruptive Innovation',
+    teaser: 'Chiến lược chiếm thị trường từ phân khúc thấp bị bỏ ngỏ, rồi leo dần lên ăn thị phần của ông lớn.',
+    detail: 'Lý thuyết của <b>Clayton Christensen</b>: các công ty đương nhiệm luôn bỏ qua khách hàng phổ thông vì lợi nhuận thấp, tập trung phục vụ khách hàng cao cấp. Đây là cơ hội cho kẻ mới vào. <b>Kẻ phá vỡ</b> (<em>Disruptor</em>) khởi đầu bằng sản phẩm đơn giản hơn, rẻ hơn, nhắm vào đáy thị trường — nơi ông lớn không thèm nhìn xuống. Khi đã có nền tảng, họ cải tiến lên và thách thức trực diện.',
+    example: '<b>Netflix</b> bắt đầu bằng cho thuê DVD qua thư — rẻ hơn Blockbuster, phục vụ người không muốn ra cửa hàng. Ông lớn khinh thường. Cho đến khi Netflix đã có 10 triệu khách hàng rồi thì Blockbuster không còn kịp phản ứng.',
+    models: ['Thuyết đổi mới gián đoạn Christensen', 'Đường cong S', 'Thuyết cạnh tranh Porter']
+  },
+  {
+    id: 8, cat: 'co-hoi',
+    vn: 'Quan sát hiện trường', en: 'Ethnographic Observation',
+    teaser: 'Ra ngoài thực địa, xem cách người ta thực sự hành động — không phải cách họ nói họ hành động.',
+    detail: '<b>Quan sát dân tộc học</b> trong kinh doanh dựa trên nguyên tắc: <b>con người nói một đằng, làm một nẻo</b>. Focus group và khảo sát cho bạn dữ liệu về ý định — quan sát cho bạn sự thật. Doanh nhân thành công dành thời gian thực tế tại "hiện trường" — nơi khách hàng sống, làm việc, mua sắm — để phát hiện những điều khách hàng không biết là họ cần.',
+    example: '<b>Steve Jobs</b> không bao giờ tin vào nghiên cứu thị trường truyền thống. Thay vào đó, nhóm Apple dành hàng tuần quan sát người dùng tương tác với máy tính để thiết kế <b>giao diện trực quan</b> mà sau đó cả thế giới gọi là "hiển nhiên".',
+    models: ['Thiên kiến xác nhận (Confirmation Bias)', 'Bản đồ hành trình khách hàng', 'Design Thinking']
+  },
+  {
+    id: 9, cat: 'co-hoi',
+    vn: 'Tín hiệu yếu', en: 'Weak Signal',
+    teaser: 'Những dấu hiệu nhỏ, mờ nhạt nhưng nếu đọc được sớm thì có thể tiên đoán xu hướng lớn sắp đến.',
+    detail: '<b>Tín hiệu yếu</b> là đối nghịch với tin tức chủ đạo — chúng xuất hiện ở vùng ngoại vi, trong hành vi của nhóm người dùng thiểu số, trong các công nghệ còn thô sơ, hoặc trong các thị trường địa lý xa xôi. Doanh nhân nhạy bén <b>đọc tín hiệu yếu trước khi chúng trở thành tín hiệu mạnh</b> — lúc đó mới phổ biến nhưng cũng đã muộn để có lợi thế đầu tiên.',
+    example: 'Năm 2010, <b>Airbnb</b> là tín hiệu yếu — ai đó ngủ trong nhà người lạ? Điên khùng! Nhưng một số người nhìn thấy: nhu cầu tiết kiệm chi phí đi lại của thế hệ trẻ + nhà để không = thị trường tỷ đô.',
+    models: ['Tư duy đảo ngược (Inversion)', 'Lý thuyết Antifragile', 'Bản đồ tương lai (Futures Map)']
+  },
+  {
+    id: 10, cat: 'co-hoi',
+    vn: 'Nghịch lý phong phú', en: 'Abundance Paradox',
+    teaser: 'Khi một nguồn tài nguyên trở nên quá dồi dào, cái khan hiếm mới chính là cơ hội.',
+    detail: 'Khi <b>thông tin trở nên miễn phí</b>, cái khan hiếm là sự chú ý. Khi <b>sản phẩm trở nên giống nhau</b>, cái khan hiếm là niềm tin và cá tính. Khi <b>phần mềm trở nên rẻ</b>, cái khan hiếm là tích hợp và dịch vụ. <b>Nghịch lý phong phú</b> dạy doanh nhân nhìn theo chiều ngược lại: điều gì đang trở nên khan hiếm chính là nơi giá trị đang dịch chuyển đến.',
+    example: 'Khi <b>AI viết nội dung</b> trở nên phổ biến, nội dung "do con người thật viết với trải nghiệm thật" lại trở nên khan hiếm và quý giá. Các nhà xuất bản nhanh nhạy xây thương hiệu cá nhân trước làn sóng này.',
+    models: ['Tư duy từ đầu tiên (First Principles)', 'Quy luật cung cầu', 'Chuyển dịch giá trị']
+  },
+  {
+    id: 11, cat: 'co-hoi',
+    vn: 'Điểm chuyển đổi', en: 'Inflection Point',
+    teaser: 'Khoảnh khắc một công nghệ, hành vi hoặc thị trường chuyển từ tăng trưởng chậm sang bùng nổ — hoặc ngược lại.',
+    detail: '<b>Điểm chuyển đổi</b> trên đường cong S là nơi mà mọi thứ thay đổi căn bản. <b>Andy Grove</b> (Intel) định nghĩa: đó là lúc mà cách làm cũ không còn hiệu quả và cách làm mới chưa được chứng minh. Doanh nhân tìm kiếm điểm chuyển đổi vì <b>chi phí gia nhập thị trường thấp nhất ngay trước khi điểm này xảy ra</b>, và phần thưởng lớn nhất thuộc về ai vào đúng lúc.',
+    example: 'Năm 2007, điện thoại thông minh đạt điểm chuyển đổi khi <b>iPhone</b> ra đời. Các nhà phát triển ứng dụng vào thị trường app năm 2008-2010 thu được lợi nhuận khổng lồ so với năm 2015 khi thị trường đã bão hòa.',
+    models: ['Đường cong S', 'Thuyết khuếch tán đổi mới Rogers', 'Quy tắc số 10x']
+  },
+  {
+    id: 12, cat: 'co-hoi',
+    vn: 'Tư duy nhà thám hiểm', en: 'Explorer Mindset',
+    teaser: 'Tiếp cận thế giới với sự tò mò không phán xét — thấy mọi thứ như lần đầu tiên.',
+    detail: '<b>Tư duy nhà thám hiểm</b> là đối lập với <b>tư duy chuyên gia</b>: chuyên gia nhìn thế giới qua khuôn khổ đã biết, nhà thám hiểm nhìn thế giới với câu hỏi "tại sao lại như thế này?". Tâm lý học gọi đây là <b>trí não của người mới bắt đầu</b> (<em>Beginner\'s Mind</em>). Doanh nhân duy trì sự tò mò này ngay cả khi đã thành công, vì kẻ ngừng tò mò là kẻ ngừng nhìn thấy cơ hội.',
+    example: '<b>Elon Musk</b> không có nền tảng hàng không vũ trụ, nhưng ông đặt câu hỏi "Tại sao tên lửa lại không thể tái sử dụng?" — điều mà chuyên gia trong ngành chấp nhận là điều hiển nhiên. Kết quả: <b>SpaceX</b> giảm chi phí phóng tên lửa xuống 10 lần.',
+    models: ['Tư duy từ đầu tiên (First Principles)', 'Thiên kiến chuyên gia (Expert Bias)', 'Trí não người mới bắt đầu']
+  },
+  {
+    id: 13, cat: 'co-hoi',
+    vn: 'Giao điểm ngành', en: 'Industry Intersection',
+    teaser: 'Nơi hai hoặc nhiều ngành gặp nhau thường tạo ra những cơ hội đột phá mà chuyên gia trong từng ngành không nhìn thấy.',
+    detail: 'Khi bạn biết cả <b>ngành A lẫn ngành B</b>, bạn có thể nhìn thấy cơ hội mà người chỉ biết A thì không thể, và người chỉ biết B cũng không thể. <b>Giao điểm ngành</b> là vùng lãnh thổ màu mỡ nhất trong đổi mới: fintech = tài chính + công nghệ; healthtech = y tế + công nghệ; edtech = giáo dục + công nghệ. Người đứng ở giao điểm không bị kẹt trong tư duy của một ngành duy nhất.',
+    example: '<b>Stripe</b> ra đời từ giao điểm giữa lập trình viên (người xây website) và ngân hàng (người xử lý thanh toán). Các lập trình viên cần thanh toán online nhưng ngân hàng không nói chuyện bằng ngôn ngữ của họ. <b>Patrick Collison</b> hiểu cả hai bên và lấp khoảng trống đó.',
+    models: ['Lattice of Mental Models', 'Tư duy liên ngành', 'Đổi mới kết hợp (Combinatorial Innovation)']
+  },
+  {
+    id: 14, cat: 'co-hoi',
+    vn: 'Cơ hội thứ hai', en: 'Second-Order Opportunity',
+    teaser: 'Cơ hội sinh ra từ cơ hội khác — hệ quả gián tiếp của một xu hướng lớn.',
+    detail: '<b>Tư duy bậc hai</b> (<em>Second-Order Thinking</em>) hỏi: "Và rồi điều gì xảy ra tiếp theo?" Khi có một xu hướng lớn xảy ra, hầu hết người ta cạnh tranh trực tiếp vào xu hướng đó. Nhưng những ai nghĩ bậc hai sẽ tìm thấy cơ hội trong <b>hệ quả gián tiếp</b> — thứ mà mọi người bỏ qua vì còn đang nhìn vào trung tâm.',
+    example: 'Trong cơn sốt vàng California 1848, hầu hết mọi người đổ xô đào vàng. Nhưng <b>Levi Strauss</b> nhìn thấy cơ hội thứ hai: thợ mỏ cần quần bền chắc. Không phải đào vàng, ông bán quần cho người đào vàng — và giàu hơn hầu hết thợ mỏ.',
+    models: ['Tư duy bậc hai (Second-Order Thinking)', 'Tư duy hệ thống', 'Hiệu ứng dây chuyền']
+  },
+  {
+    id: 15, cat: 'co-hoi',
+    vn: 'Giả thuyết nhân quả', en: 'Causal Hypothesis',
+    teaser: 'Trước khi xây dựng giải pháp, phải hiểu thật sự nguyên nhân gốc rễ tại sao vấn đề tồn tại.',
+    detail: '<b>Giả thuyết nhân quả</b> ngăn doanh nhân xây giải pháp cho triệu chứng thay vì cho bệnh. Công cụ <b>5 Tại sao</b> (<em>5 Whys</em>) của Toyota: hỏi "tại sao" liên tục 5 lần để tìm nguyên nhân thật sự. Nếu khách hàng không mua — tại sao? Vì giá cao. Tại sao? Vì chi phí sản xuất cao. Tại sao? Vì quy trình chậm. Tại sao? Vì không có tự động hóa. Tại sao? Vì không ai phụ trách. Nguyên nhân gốc: thiếu người phụ trách quy trình.',
+    example: 'Bệnh viện thấy bệnh nhân phàn nàn về thời gian chờ đợi dài. Giải pháp rõ ràng: thuê thêm bác sĩ. Nhưng sau khi hỏi 5 lần tại sao, hóa ra nguyên nhân gốc là phần mềm đặt lịch kém khiến bác sĩ lãng phí 40% thời gian vào giấy tờ. Giải pháp thực sự rẻ hơn và hiệu quả hơn.',
+    models: ['Phân tích nguyên nhân gốc rễ (Root Cause Analysis)', '5 Whys Toyota', 'Cây vấn đề (Problem Tree)']
+  },
+  // ====== MÔ HÌNH KINH DOANH ======
+  {
+    id: 16, cat: 'mo-hinh',
+    vn: 'Đề xuất giá trị', en: 'Value Proposition',
+    teaser: 'Lý do duy nhất và cụ thể nhất tại sao khách hàng nên chọn bạn thay vì đối thủ.',
+    detail: '<b>Đề xuất giá trị</b> không phải là khẩu hiệu marketing — đó là câu trả lời cho câu hỏi: "Bạn giải quyết vấn đề gì, cho ai, bằng cách nào tốt hơn tất cả lựa chọn khác?" Công thức đơn giản: <b>Chúng tôi giúp [khách hàng X] làm được [điều Y] khác với [giải pháp hiện tại Z] bằng cách [phương pháp W]</b>. Đề xuất giá trị yếu là nguyên nhân số một khiến startup thất bại — không phải vì thiếu vốn hay công nghệ kém.',
+    example: '<b>Slack</b>: "Chúng tôi thay thế email nội bộ công ty bằng một nơi tập trung toàn bộ giao tiếp đội nhóm, có thể tìm kiếm và tích hợp với mọi công cụ." So sánh với email: nhanh hơn, ngắn hơn, có thể phân nhóm. Rõ ràng và thuyết phục.',
+    models: ['Khung Canvas Giá trị', 'Jobs-to-be-Done', 'Lý thuyết sản phẩm tối thiểu khả thi (MVP)']
+  },
+  {
+    id: 17, cat: 'mo-hinh',
+    vn: 'Bản đồ mô hình kinh doanh', en: 'Business Model Canvas',
+    teaser: 'Khung tư duy 9 ô giúp thiết kế và hiểu toàn bộ cách một doanh nghiệp tạo ra, phân phối và thu giá trị.',
+    detail: '<b>Business Model Canvas</b> của <b>Alexander Osterwalder</b> gồm 9 khối: Phân khúc khách hàng, Đề xuất giá trị, Kênh phân phối, Quan hệ khách hàng, Dòng doanh thu, Nguồn lực then chốt, Hoạt động then chốt, Đối tác then chốt, Cấu trúc chi phí. Sức mạnh của khung này là <b>nhìn toàn bộ doanh nghiệp trên một tờ giấy</b> — thấy các bộ phận tương tác với nhau và phát hiện điểm yếu trong chuỗi giá trị.',
+    example: 'Khi <b>Grab</b> phân tích canvas của mình, họ nhận ra kênh "đối tác lái xe" là nguồn lực then chốt nhưng cũng là điểm yếu (khó kiểm soát chất lượng). Điều này dẫn đến việc xây dựng hệ thống đánh giá và đào tạo tài xế — thứ tạo ra lợi thế cạnh tranh thực sự.',
+    models: ['Business Model Canvas', 'Chuỗi giá trị Porter', 'Khung SWOT']
+  },
+  {
+    id: 18, cat: 'mo-hinh',
+    vn: 'Mô hình nền tảng', en: 'Platform Model',
+    teaser: 'Doanh nghiệp không tự sản xuất mà tạo ra hạ tầng kết nối người mua và người bán — và thu phí từ mỗi giao dịch.',
+    detail: '<b>Mô hình nền tảng</b> là một trong những mô hình kinh doanh mạnh mẽ nhất thế kỷ 21 vì nó tạo ra <b>hiệu ứng mạng lưới hai chiều</b>: càng nhiều người mua thì càng hấp dẫn người bán, và càng nhiều người bán thì càng hấp dẫn người mua. Nền tảng không cần sở hữu tài sản — Uber không có xe, Airbnb không có nhà, Shopee không có kho hàng. Họ sở hữu <b>thị trường</b>.',
+    example: '<b>Tiki, Shopee, Lazada</b> là nền tảng thương mại điện tử. Giá trị không nằm ở số sản phẩm mà ở số người mua và người bán trên hệ thống. Khi đạt đủ khối lượng, mỗi người mua mới đều thu hút người bán mới mà không cần chi phí thêm.',
+    models: ['Hiệu ứng mạng lưới (Network Effect)', 'Quy luật Metcalfe', 'Lý thuyết thị trường hai chiều']
+  },
+  {
+    id: 19, cat: 'mo-hinh',
+    vn: 'Mô hình đăng ký', en: 'Subscription Model',
+    teaser: 'Khách hàng trả một khoản cố định định kỳ để nhận dịch vụ liên tục — tạo ra doanh thu tái diễn có thể dự đoán.',
+    detail: '<b>Mô hình đăng ký</b> tạo ra <b>doanh thu tái diễn</b> (<em>Recurring Revenue</em>) — nguồn doanh thu ổn định nhất và được định giá cao nhất khi huy động vốn. Chỉ số quan trọng nhất: <b>LTV/CAC</b> (Giá trị trọn đời khách hàng / Chi phí thu hút khách hàng) — tỷ lệ này cần lớn hơn 3 để doanh nghiệp bền vững. Chiến lược giữ chân: làm cho việc hủy đăng ký đau đớn hơn việc tiếp tục trả tiền.',
+    example: '<b>Netflix</b> đổi từ mua đĩa DVD sang đăng ký tháng — tạo ra 260 triệu thuê bao trả tiền đều đặn mỗi tháng. Doanh thu tái diễn này cho phép họ đầu tư vào nội dung gốc mà không lo ngân sách bất ổn.',
+    models: ['Vòng đời giá trị khách hàng (CLV)', 'Tỷ lệ rời bỏ (Churn Rate)', 'Kinh tế học đơn vị (Unit Economics)']
+  },
+  {
+    id: 20, cat: 'mo-hinh',
+    vn: 'Mô hình Freemium', en: 'Freemium Model',
+    teaser: 'Miễn phí cơ bản, trả tiền để nâng cấp — chiến lược giảm rào cản gia nhập và chuyển đổi người dùng thành khách hàng.',
+    detail: '<b>Freemium</b> hoạt động khi: sản phẩm có chi phí biên gần bằng không (phần mềm), giá trị trở nên rõ ràng khi dùng thử, và có tính năng premium đủ hấp dẫn để khuyến khích nâng cấp. Tỷ lệ chuyển đổi điển hình: <b>2-5%</b> — nghĩa là 95-98% người dùng không trả tiền nhưng họ giúp tạo ra <b>hiệu ứng mạng lưới</b> và giảm chi phí marketing (truyền miệng).',
+    example: '<b>Spotify</b>: người dùng miễn phí phải nghe quảng cáo và không tải về offline được. Khi đã nghiện nghe nhạc, việc nâng cấp lên premium là tự nhiên. 30% người dùng Spotify trả tiền — đủ để vận hành cả hệ sinh thái 600+ triệu người.',
+    models: ['Hiệu ứng mạng lưới', 'Lý thuyết quyết định (Decision Theory)', 'Kinh tế học hành vi (Behavioral Economics)']
+  },
+  {
+    id: 21, cat: 'mo-hinh',
+    vn: 'Mô hình dao cạo và lưỡi dao', en: 'Razor-and-Blade Model',
+    teaser: 'Bán sản phẩm cơ bản với giá thấp (hoặc âm), kiếm tiền từ phụ kiện/tiêu hao cần thiết để sử dụng sản phẩm đó.',
+    detail: '<b>Gillette</b> là cha đẻ của mô hình này: dao cạo rẻ tiền hoặc miễn phí, nhưng lưỡi dao thay thế thì đắt. Nguyên lý: <b>khóa khách hàng vào hệ sinh thái</b> bằng cách làm cho chi phí chuyển đổi cao. Biến thể hiện đại: máy in giá rẻ — mực in đắt; máy pha cà phê giá rẻ — viên cà phê đắt; console game giá gốc — game và DLC lãi cao.',
+    example: '<b>Nespresso</b> bán máy pha cà phê với giá vừa phải hoặc thấp, nhưng viên cà phê của họ đắt gấp 5-10 lần cà phê truyền thống và chỉ dùng được với máy Nespresso. Khách mua máy xong là "kẹt" vào hệ sinh thái viên cà phê mãi mãi.',
+    models: ['Chi phí chuyển đổi (Switching Cost)', 'Hệ sinh thái sản phẩm', 'Giá trị vòng đời khách hàng']
+  },
+  {
+    id: 22, cat: 'mo-hinh',
+    vn: 'Mô hình kinh doanh đại lý', en: 'Marketplace / Agency Model',
+    teaser: 'Kết nối người mua và người bán, thu hoa hồng từ mỗi giao dịch — không cần sở hữu hàng hóa hay tồn kho.',
+    detail: '<b>Mô hình đại lý</b> có biên lợi nhuận cao vì không có chi phí hàng tồn kho hay sản xuất. Rủi ro chính: <b>rò rỉ giao dịch</b> (<em>Transaction Leakage</em>) — người mua và người bán có thể cắt bỏ nền tảng và giao dịch trực tiếp sau lần đầu. Giải pháp: xây dựng dịch vụ giá trị gia tăng đủ lớn (bảo lãnh thanh toán, đánh giá độ tin cậy, bảo hiểm) để không ai muốn giao dịch ngoài nền tảng.',
+    example: '<b>Airbnb</b> thu 3% từ chủ nhà và 12-14% từ khách mỗi booking mà không cần sở hữu bất kỳ bất động sản nào. Giá trị của họ là sự tin cậy, bảo hiểm và hệ thống đánh giá — thứ khiến cả hai bên không muốn giao dịch ngoài.',
+    models: ['Kinh tế học nền tảng (Platform Economics)', 'Hiệu ứng mạng lưới', 'Chi phí giao dịch (Transaction Cost)']
+  },
+  {
+    id: 23, cat: 'mo-hinh',
+    vn: 'Mô hình trực tiếp đến người tiêu dùng', en: 'Direct-to-Consumer (D2C)',
+    teaser: 'Bỏ qua trung gian, bán thẳng đến tay người dùng cuối — kiểm soát thương hiệu, dữ liệu và biên lợi nhuận.',
+    detail: '<b>D2C</b> đảo lộn chuỗi cung ứng truyền thống: thay vì Nhà sản xuất → Phân phối → Bán lẻ → Người tiêu dùng, D2C làm ngắn thành Nhà sản xuất → Người tiêu dùng. Lợi ích: biên lợi nhuận cao hơn 30-50%, sở hữu dữ liệu khách hàng, phản hồi nhanh hơn. Thách thức: phải tự lo marketing, logistics và dịch vụ khách hàng.',
+    example: '<b>Warby Parker</b> (kính mắt) và <b>Dollar Shave Club</b> (dao cạo) bỏ qua toàn bộ hệ thống phân phối truyền thống, bán online trực tiếp. Giá rẻ hơn 50-70% so với kính tại cửa hàng mà margin vẫn cao hơn vì cắt được trung gian.',
+    models: ['Phân tích chuỗi giá trị', 'Chi phí giao dịch', 'Tích hợp dọc (Vertical Integration)']
+  },
+  {
+    id: 24, cat: 'mo-hinh',
+    vn: 'Doanh thu tái diễn', en: 'Recurring Revenue',
+    teaser: 'Doanh thu tự động đến mà không cần bán hàng lại từ đầu — nền tảng của doanh nghiệp bền vững.',
+    detail: '<b>Doanh thu tái diễn</b> là chén thánh của kinh doanh. Nhà đầu tư định giá doanh thu tái diễn cao hơn 5-10 lần so với doanh thu một lần. Lý do: độ ổn định, khả năng dự đoán và khả năng mở rộng. Xây dựng doanh thu tái diễn: hợp đồng dài hạn, đăng ký định kỳ, mô hình retainer, hoặc sản phẩm tiêu hao định kỳ.',
+    example: '<b>Microsoft Office</b> chuyển từ bán phần mềm một lần (tạm) sang <b>Microsoft 365</b> (tháng/năm). Kết quả: doanh thu ổn định, dự đoán được, và tổng doanh thu từ mỗi khách hàng tăng 3-4 lần trong vòng đời sử dụng.',
+    models: ['ARR/MRR (Doanh thu tái diễn hàng năm/tháng)', 'Churn Rate', 'LTV/CAC ratio']
+  },
+  {
+    id: 25, cat: 'mo-hinh',
+    vn: 'Mô hình kinh doanh dữ liệu', en: 'Data Business Model',
+    teaser: 'Dữ liệu thu thập từ dịch vụ miễn phí được chuyển đổi thành giá trị kinh doanh — quảng cáo, phân tích, hoặc quyết định AI.',
+    detail:'Trong <b>mô hình dữ liệu</b>, người dùng trả bằng dữ liệu hành vi thay vì tiền mặt. Dữ liệu đó được dùng để nhắm mục tiêu quảng cáo (Google, Facebook), cải thiện AI (mọi ứng dụng AI), hoặc bán insight cho doanh nghiệp (Nielsen, Statista). Giá trị dữ liệu tăng lên khi: <b>dữ liệu nhiều hơn, đa chiều hơn và được xử lý thông minh hơn</b>.',
+    example: '<b>Google Maps</b> miễn phí cho người dùng vì dữ liệu di chuyển của hàng tỷ người cực kỳ quý giá: giúp Google cải thiện bản đồ, bán quảng cáo địa điểm cho doanh nghiệp và xây dựng hệ thống AI định vị tốt nhất thế giới.',
+    models: ['Kinh tế học dữ liệu', 'Hiệu ứng mạng lưới dữ liệu', 'Quyền riêng tư vs Giá trị']
+  },
+  {
+    id: 26, cat: 'mo-hinh',
+    vn: 'Mô hình tích hợp dọc', en: 'Vertical Integration',
+    teaser: 'Kiểm soát nhiều bước hơn trong chuỗi cung ứng — từ nguyên liệu đến tay người dùng.',
+    detail: '<b>Tích hợp dọc</b> tăng kiểm soát nhưng tăng phức tạp. Tích hợp ngược (<em>Backward Integration</em>): mua nhà cung cấp (như Apple tự làm chip). Tích hợp xuôi (<em>Forward Integration</em>): mua kênh phân phối (như Nike mở cửa hàng riêng). Lý do chiến lược: bảo vệ nguồn cung, giữ biên lợi nhuận, kiểm soát chất lượng và trải nghiệm khách hàng.',
+    example: '<b>Tesla</b> kiểm soát toàn bộ từ khai thác lithium, sản xuất pin (Gigafactory), lắp ráp xe, đến bán hàng trực tiếp (không qua đại lý) và trạm sạc. Điều này tốn kém nhưng cho phép Tesla tối ưu từng khâu và bảo mật công nghệ.',
+    models: ['Phân tích chuỗi giá trị', 'Lý thuyết chi phí giao dịch Coase', 'Quyết định Tự làm vs Mua']
+  },
+  {
+    id: 27, cat: 'mo-hinh',
+    vn: 'Đơn vị kinh tế', en: 'Unit Economics',
+    teaser: 'Phân tích lợi nhuận/lỗ trên mỗi đơn vị sản phẩm hoặc mỗi khách hàng — trước khi mở rộng quy mô.',
+    detail: '<b>Đơn vị kinh tế</b> là sức khỏe tài chính vi mô của doanh nghiệp. Nếu mỗi giao dịch lỗ thì tăng quy mô chỉ làm lỗ nhanh hơn. Hai chỉ số cốt lõi: <b>CAC</b> (Chi phí thu hút 1 khách hàng) và <b>LTV</b> (Tổng giá trị khách hàng mang lại trong vòng đời). Quy tắc: LTV phải gấp ít nhất 3 lần CAC và khách hàng phải hoàn vốn trong vòng 18 tháng.',
+    example: 'Một ứng dụng giao đồ ăn tốn 200.000đ để thu hút 1 khách hàng, nhưng mỗi đơn hàng chỉ lãi 5.000đ và khách đặt trung bình 2 đơn/tháng. Cần 20 tháng để hoàn vốn, trong khi khách hàng thường bỏ sau 6 tháng. <b>Đơn vị kinh tế âm</b> — mở rộng quy mô sẽ phá sản nhanh hơn.',
+    models: ['LTV/CAC ratio', 'Payback Period', 'Contribution Margin']
+  },
+  {
+    id: 28, cat: 'mo-hinh',
+    vn: 'Hiệu ứng mạng lưới', en: 'Network Effect',
+    teaser: 'Sản phẩm càng nhiều người dùng thì càng có giá trị hơn với mỗi người dùng — vòng xoáy tăng trưởng tự khuếch đại.',
+    detail: '<b>Hiệu ứng mạng lưới</b> là thứ tạo ra những "hào ngăn cách" (<em>Moat</em>) mạnh nhất trong kinh doanh hiện đại. Hai loại: <b>hiệu ứng trực tiếp</b> (thêm người dùng làm sản phẩm tốt hơn trực tiếp — như Zalo, Facebook) và <b>hiệu ứng gián tiếp</b> (thêm người bán thu hút người mua — như chợ/sàn thương mại điện tử). Doanh nghiệp đạt điểm tới hạn (<em>Critical Mass</em>) của mạng lưới thường không thể bị phá vỡ bởi đối thủ mới.',
+    example: '<b>WhatsApp</b> không có sản phẩm tốt hơn SMS hay email về mặt kỹ thuật. Nhưng khi 90% bạn bè trong điện thoại bạn dùng WhatsApp, bạn không có lý do gì để dùng ứng dụng khác. Đây là hiệu ứng mạng lưới trực tiếp thuần túy.',
+    models: ['Quy luật Metcalfe', 'Điểm tới hạn (Critical Mass)', 'Lợi thế người đến đầu (First-Mover Advantage)']
+  },
+  {
+    id: 29, cat: 'mo-hinh',
+    vn: 'Hào ngăn cách', en: 'Economic Moat',
+    teaser: 'Lợi thế cạnh tranh bền vững bảo vệ doanh nghiệp khỏi bị đối thủ ăn mòn theo thời gian.',
+    detail: '<b>Warren Buffett</b> phổ biến khái niệm này: "Tôi tìm những doanh nghiệp có hào ngăn cách rộng và bền xung quanh họ — những lợi thế cạnh tranh lâu dài." Năm loại hào: <b>Hiệu ứng mạng lưới</b>, <b>Chi phí chuyển đổi cao</b>, <b>Lợi thế quy mô</b>, <b>Tài sản vô hình</b> (thương hiệu, bằng sáng chế), và <b>Lợi thế chi phí</b>. Đánh giá sức mạnh hào: đối thủ có thể sao chép trong 1, 3, hay 10 năm?',
+    example: '<b>Coca-Cola</b> không phải nước ngọt ngon nhất (nhiều thử nghiệm mù đã chứng minh). Nhưng thương hiệu 130 năm, kênh phân phối 200 quốc gia và sự kết nối cảm xúc tạo ra một hào vô hình không thể vượt qua bằng tiền và công nghệ.',
+    models: ['Khung lợi thế cạnh tranh bền vững', 'Lý thuyết cạnh tranh Porter', 'Phân tích VRIO']
+  },
+  {
+    id: 30, cat: 'mo-hinh',
+    vn: 'Hệ sinh thái kinh doanh', en: 'Business Ecosystem',
+    teaser: 'Mạng lưới các doanh nghiệp, nhà cung cấp, đối tác, khách hàng tạo ra giá trị cùng nhau — không ai thắng một mình.',
+    detail: '<b>Hệ sinh thái kinh doanh</b> là cách doanh nghiệp thống trị trong thế kỷ 21: không xây tất cả một mình mà tạo ra một nền tảng mà người khác xây lên trên. <b>Apple</b> không viết tất cả ứng dụng — họ tạo App Store và 34 triệu nhà phát triển xây lên đó. Khi hệ sinh thái đủ mạnh, nó tự duy trì và tự phát triển mà không cần người tạo ra phải kiểm soát từng phần.',
+    example: '<b>Amazon AWS</b> là nền tảng hạ tầng điện toán đám mây mà hàng triệu startup, doanh nghiệp và ứng dụng chạy trên đó. Mỗi startup thành công trên AWS lại thu hút thêm startup khác dùng AWS. Amazon trở thành hạ tầng của hạ tầng kinh tế số.',
+    models: ['Lý thuyết sinh thái kinh doanh Moore', 'Nền tảng vs Đường ống', 'Lợi thế bổ sung (Complementary Assets)']
+  },
+  // ====== TÂM LÝ & MINDSET ======
+  {
+    id: 31, cat: 'tam-ly',
+    vn: 'Chịu đựng sự mơ hồ', en: 'Tolerance for Ambiguity',
+    teaser: 'Khả năng hành động quyết đoán ngay cả khi thiếu thông tin đầy đủ — năng lực cốt lõi của doanh nhân.',
+    detail: 'Khác với người làm công ăn lương muốn <b>sự chắc chắn</b> trước khi hành động, doanh nhân học cách làm việc trong <b>sự không chắc chắn</b>. Đây không phải liều lĩnh — mà là kỹ năng thu thập thông tin đủ nhanh để ra quyết định đủ tốt. Phương trình của doanh nhân: <b>Hành động tốt hơn là Không hành động dù có đủ dữ liệu</b> — vì trong kinh doanh, không bao giờ có đủ dữ liệu và thị trường không chờ ai.',
+    example: '<b>Jeff Bezos</b> ra mắt Amazon Web Services mà không có bằng chứng nào là thị trường điện toán đám mây sẽ phổ biến. Ông hành động dựa trên trực giác và vài tín hiệu yếu. AWS giờ là nguồn lợi nhuận lớn nhất của Amazon.',
+    models: ['Quy tắc 70% của Bezos', 'Thiên kiến không hành động (Omission Bias)', 'Khung quyết định trong bất định']
+  },
+  {
+    id: 32, cat: 'tam-ly',
+    vn: 'Tư duy đầu cơ sáng tạo', en: 'Creative Speculation',
+    teaser: 'Khả năng hình dung những tương lai chưa tồn tại và làm việc ngược trở lại để biến chúng thành hiện thực.',
+    detail: '<b>Tư duy đầu cơ sáng tạo</b> là điểm giao giữa trí tưởng tượng và phân tích nghiêm túc. Doanh nhân không chỉ thấy thế giới đang là gì mà hỏi "thế giới có thể là gì?" — và sau đó lập bản đồ ngược từ tương lai đó về hiện tại: <b>tư duy từ tương lai về hiện tại</b> (<em>Backcasting</em>). Đây là nền tảng của mọi đổi mới đột phá.',
+    example: '<b>Elon Musk</b> hỏi: "Nếu nhân loại cần sống trên sao Hỏa năm 2040, chúng ta cần làm gì từ bây giờ?" Rồi ông làm ngược từ đó về hiện tại. SpaceX, Tesla, Starlink đều sinh ra từ câu hỏi ngược chiều thời gian này.',
+    models: ['Backcasting', 'Tư duy từ đầu tiên (First Principles)', 'Scenario Planning']
+  },
+  {
+    id: 33, cat: 'tam-ly',
+    vn: 'Ngưỡng chịu đựng thất bại', en: 'Failure Threshold',
+    teaser: 'Mức độ thất bại bạn có thể chịu đựng mà không bỏ cuộc — và khả năng học từ thất bại đó.',
+    detail: '<b>Doanh nhân và thất bại</b> không thể tách rời. Nghiên cứu cho thấy doanh nhân thành công trung bình thất bại 3,8 lần trước khi thành công lớn. Điều quan trọng không phải là tránh thất bại mà là: (1) <b>Không thất bại vì cùng lý do</b>, (2) <b>Giữ cho thất bại không đủ lớn để giết chết</b> (<em>Avoid Ruin</em>), (3) <b>Học nhanh nhất có thể từ mỗi thất bại</b>.',
+    example: '<b>James Dyson</b> tạo ra 5.127 nguyên mẫu hỏng trước khi ra đời máy hút bụi Dyson đầu tiên thành công. Ông không thấy đây là 5.127 thất bại — ông thấy đây là 5.127 lần học điều không hoạt động.',
+    models: ['Lý thuyết Antifragile Taleb', 'Vòng lặp Học-Hành động', 'Khung Postmortem']
+  },
+  {
+    id: 34, cat: 'tam-ly',
+    vn: 'Thiên kiến hành động', en: 'Bias Toward Action',
+    teaser: 'Xu hướng mặc định là bắt đầu, thử nghiệm và điều chỉnh — thay vì lập kế hoạch cho đến khi mọi thứ hoàn hảo.',
+    detail: '<b>Thiên kiến hành động</b> không có nghĩa là hành động bừa bãi — mà là nhận ra rằng <b>thực tế sẽ dạy bạn những thứ mà lý thuyết không thể</b>. Nghịch lý của lập kế hoạch: kế hoạch hoàn hảo nhất cũng vô dụng khi gặp thực tế. Chiến lược: lập kế hoạch đủ tốt, bắt đầu, thu thập dữ liệu thực tế, điều chỉnh. Lặp lại.',
+    example: '<b>Reid Hoffman</b> (LinkedIn): "Nếu bạn không xấu hổ về phiên bản đầu tiên của sản phẩm, bạn đã ra mắt quá muộn." Điều này không khuyến khích sản phẩm kém chất lượng — nó nhắc rằng không ra mắt là thất bại chắc chắn nhất.',
+    models: ['Chu trình Build-Measure-Learn', 'MVP (Sản phẩm tối thiểu khả thi)', 'Quy tắc 70% Bezos']
+  },
+  {
+    id: 35, cat: 'tam-ly',
+    vn: 'Lòng kiên nhẫn bất cân xứng', en: 'Asymmetric Patience',
+    teaser: 'Kiên nhẫn về dài hạn — nhưng nóng vội về ngắn hạn. Làm hôm nay nhưng không cần kết quả hôm nay.',
+    detail: '<b>Doanh nhân giỏi</b> kiên nhẫn về kết quả dài hạn (xây dựng doanh nghiệp thực sự cần 7-10 năm) nhưng không kiên nhẫn về việc học hỏi và hành động hôm nay. Đây là <b>tư duy dài hạn trong hành động ngắn hạn</b>. Trái ngược với người ngắn hạn: muốn kết quả ngay nhưng trì hoãn hành động.',
+    example: '<b>Amazon</b> mất 9 năm (1994-2003) mới có lợi nhuận ròng đầu tiên. Bezos liên tục đầu tư lại vào tăng trưởng và bị phố Wall chỉ trích. Nhưng ông kiên nhẫn về kết quả dài hạn và không kiên nhẫn về việc xây dựng mỗi ngày.',
+    models: ['Tư duy dài hạn (Long-Term Thinking)', 'Phân tích chiết khấu dòng tiền (DCF)', 'Lý thuyết trò chơi vô hạn Sinek']
+  },
+  {
+    id: 36, cat: 'tam-ly',
+    vn: 'Sự tự tin hiệu dụng', en: 'Functional Confidence',
+    teaser: 'Không phải sự tự tin mù quáng, mà là niềm tin có căn cứ rằng mình có thể tìm ra cách — dù chưa biết cách đó là gì.',
+    detail: '<b>Sự tự tin hiệu dụng</b> khác với kiêu ngạo: đây là <b>tin tưởng vào quá trình học hỏi của bản thân</b> hơn là tin vào kết quả cụ thể. Doanh nhân với sự tự tin này không nói "Tôi biết mình sẽ thành công" mà nói "Tôi không biết sẽ thành công hay không, nhưng tôi biết tôi sẽ học được những thứ cần thiết để có cơ hội tốt nhất."',
+    example: '<b>Sara Blakely</b> (Spanx) không có kinh nghiệm kinh doanh quần áo, không có vốn lớn, và bị từ chối bởi mọi nhà máy sản xuất. Nhưng bà tin rằng mình có thể tìm ra cách — và mỗi lần bị từ chối là mỗi lần học thêm. Spanx trở thành thương hiệu tỷ đô.',
+    models: ['Lý thuyết tư duy phát triển (Growth Mindset Dweck)', 'Hiệu ứng Dunning-Kruger', 'Vòng phản hồi học tập']
+  },
+  {
+    id: 37, cat: 'tam-ly',
+    vn: 'Quản lý năng lượng', en: 'Energy Management',
+    teaser: 'Doanh nhân không quản lý thời gian — họ quản lý năng lượng tư duy, cảm xúc và thể chất để duy trì hiệu suất cao dài hạn.',
+    detail: 'Không phải 24 giờ của mọi người đều bằng nhau: <b>1 giờ tập trung cao độ bằng 3 giờ làm việc xao lãng</b>. Doanh nhân giỏi xác định thời điểm năng lượng đỉnh cao của bản thân và bảo vệ thời gian đó cho công việc quan trọng nhất. Họ cũng đầu tư vào nguồn tạo năng lượng: ngủ, vận động, dinh dưỡng, mối quan hệ — không phải là xa xỉ mà là nhiên liệu cho doanh nghiệp.',
+    example: '<b>Mark Zuckerberg</b> mặc cùng một bộ quần áo mỗi ngày — không phải vì lười mà để <b>tiết kiệm năng lượng quyết định</b> (<em>Decision Fatigue</em>). Ông dành nguồn lực nhận thức cho những quyết định quan trọng của Facebook.',
+    models: ['Kiệt sức quyết định (Decision Fatigue)', 'Quy tắc 1%', 'Dòng chảy (Flow State Csikszentmihalyi)']
+  },
+  {
+    id: 38, cat: 'tam-ly',
+    vn: 'Đặt lại định nghĩa thất bại', en: 'Reframing Failure',
+    teaser: 'Thay đổi cách diễn giải thất bại từ "bằng chứng mình tệ" thành "dữ liệu quý giá để cải thiện".',
+    detail: '<b>Tái định khung</b> (<em>Reframing</em>) là kỹ thuật nhận thức cốt lõi: thay đổi cách nhìn về cùng một sự kiện. Doanh nhân học cách tự hỏi "Tôi học được gì từ đây?" thay vì "Tôi kém như thế nào?". Khoa học thần kinh xác nhận: cách bạn diễn giải một trải nghiệm ảnh hưởng đến học hỏi của não nhiều hơn bản thân trải nghiệm đó.',
+    example: '<b>Thomas Edison</b> khi thí nghiệm thứ 1000 để tìm vật liệu bóng đèn vẫn thất bại, ông nói: "Tôi không thất bại 1000 lần. Tôi đã thành công trong việc tìm ra 1000 vật liệu không phù hợp." Đây là tái định khung thuần túy.',
+    models: ['Tâm lý học nhận thức', 'Lý thuyết bất lực học được (Seligman)', 'Nhật ký hậu kiểm (Postmortem Journal)']
+  },
+  {
+    id: 39, cat: 'tam-ly',
+    vn: 'Thiên kiến sống sót', en: 'Survivorship Bias',
+    teaser: 'Xu hướng chỉ thấy những câu chuyện thành công mà quên mất những câu chuyện thất bại tương tự — dẫn đến kết luận sai lệch.',
+    detail: '<b>Thiên kiến sống sót</b> là một trong những bẫy tư duy nguy hiểm nhất với doanh nhân. Bạn chỉ nghe câu chuyện của những người thành công, không nghe những người bỏ cuộc với cùng chiến lược đó. Ví dụ: "Người thành công đều dậy sớm 5 giờ sáng" — bạn không nghe về hàng ngàn người dậy 5 giờ sáng mỗi ngày nhưng vẫn thất bại.',
+    example: '<b>Warren Buffett</b> thành công với đầu tư giá trị dài hạn. Nhưng hàng nghìn nhà đầu tư áp dụng cùng phương pháp đó không có tên trên báo vì họ thất bại. Sao chép chiến lược của người thành công mà không hiểu bối cảnh là bẫy tư duy nguy hiểm.',
+    models: ['Thiên kiến nhận thức (Cognitive Bias)', 'Thống kê Bayesian', 'Phân tích cơ sở (Base Rate Neglect)']
+  },
+  {
+    id: 40, cat: 'tam-ly',
+    vn: 'Trạng thái dòng chảy', en: 'Flow State',
+    teaser: 'Trạng thái tập trung tuyệt đối khi thách thức vừa đủ cao và kỹ năng vừa đủ để đối mặt — năng suất tăng 5 lần.',
+    detail: '<b>Flow</b> được nghiên cứu bởi <b>Mihaly Csikszentmihalyi</b>: trạng thái mà bạn mất cảm giác về thời gian, hành động trở nên tự nhiên và năng suất đạt đỉnh cao. Điều kiện: thách thức phải đủ cao (không nhàm chán) nhưng không quá cao (không lo lắng), phải có mục tiêu rõ ràng và phản hồi tức thì. Doanh nhân thiết kế công việc của mình để tối đa hóa thời gian trong trạng thái này.',
+    example: '<b>Nhà lập trình giỏi</b> mô tả giờ viết code tốt như "không còn thấy bàn phím, chỉ thấy vấn đề và giải pháp xuất hiện". Đây là flow. Các công ty hàng đầu như <b>Google</b> thiết kế văn phòng và lịch trình để tối đa thời gian flow của kỹ sư.',
+    models: ['Tâm lý học tích cực Csikszentmihalyi', 'Deep Work Cal Newport', 'Quản lý sự chú ý']
+  },
+  {
+    id: 41, cat: 'tam-ly',
+    vn: 'Ý chí thực hiện', en: 'Implementation Intention',
+    teaser: 'Kỹ thuật chuyển ý định thành hành động bằng cách xác định trước cụ thể: KHI NÀO, Ở ĐÂU, LÀM GÌ.',
+    detail: '<b>Ý chí thực hiện</b> của nhà tâm lý học <b>Peter Gollwitzer</b>: thay vì "Tôi sẽ gọi cho khách hàng tiềm năng", hãy nói "Thứ Hai 9 giờ sáng, sau khi uống cà phê xong, tôi sẽ gọi cho Anh Minh 10 phút về đề xuất mới." Nghiên cứu cho thấy điều này tăng tỷ lệ thực hiện từ 30% lên 90%. Doanh nhân dùng kỹ thuật này để đưa ý định chiến lược vào lịch cụ thể.',
+    example: 'Thay vì "Tôi sẽ tìm hiểu về đối thủ", doanh nhân giỏi sẽ lên lịch: "Thứ Sáu 4-5 giờ chiều hàng tuần, tôi ngồi phân tích giá, tính năng và feedback của 3 đối thủ chính." Hành động nhỏ, nhất quán hàng tuần tạo ra insight không thể mua được.',
+    models: ['Tâm lý học hành vi (Behavioral Psychology)', 'Hệ thống vs Mục tiêu (James Clear)', 'Vòng lặp thói quen (Habit Loop)']
+  },
+  {
+    id: 42, cat: 'tam-ly',
+    vn: 'Kiểm soát phạm vi', en: 'Locus of Control',
+    teaser: 'Niềm tin rằng kết quả trong cuộc sống phụ thuộc vào hành động của chính mình — không phải vào vận may hay hoàn cảnh.',
+    detail: '<b>Locus of Control nội tại</b> (<em>Internal</em>): tin rằng mình có thể ảnh hưởng đến kết quả bằng hành động. <b>Locus of Control ngoại tại</b> (<em>External</em>): tin rằng kết quả do hoàn cảnh, may rủi, người khác quyết định. Nghiên cứu cho thấy doanh nhân thành công có <b>locus of control nội tại mạnh</b> — họ không chờ điều kiện thuận lợi, họ tạo ra điều kiện.',
+    example: 'Hai người cùng mất việc trong khủng hoảng kinh tế 2008. Người locus ngoại tại: "Nền kinh tế tệ, không ai tuyển dụng." Người locus nội tại: "Tôi cần học kỹ năng mới, tìm ngành còn tuyển dụng, hoặc tự khởi nghiệp." Cùng một bối cảnh, hai kết quả khác nhau hoàn toàn.',
+    models: ['Tâm lý học kiểm soát Rotter', 'Tư duy phát triển vs cố định (Dweck)', 'Triết học Stoic']
+  },
+  {
+    id: 43, cat: 'tam-ly',
+    vn: 'Tư duy phong phú', en: 'Abundance Mindset',
+    teaser: 'Niềm tin rằng thế giới có đủ cơ hội, nguồn lực và thành công cho tất cả — không phải trò chơi có tổng bằng không.',
+    detail: '<b>Tư duy phong phú</b> đối lập với <b>tư duy khan hiếm</b> (<em>Scarcity Mindset</em>): sự thành công của người khác không lấy đi cơ hội của bạn — nó chứng minh rằng cơ hội tồn tại. Doanh nhân với tư duy phong phú sẵn lòng chia sẻ kiến thức, hợp tác với đối thủ khi có lợi ích chung, và tìm kiếm <b>tình huống cùng thắng</b> (<em>Win-Win</em>) thay vì luôn cạnh tranh bằng không.',
+    example: '<b>Elon Musk</b> công bố mở nguồn toàn bộ bằng sáng chế của Tesla năm 2014 — để đối thủ xây xe điện tốt hơn. Lý do: ông muốn cả ngành xe điện phát triển nhanh hơn để tạo hạ tầng sạc, thói quen người dùng và quy định có lợi cho tất cả xe điện kể cả Tesla.',
+    models: ['Lý thuyết trò chơi (Game Theory)', 'Tư duy Win-Win Covey', 'Kinh tế học không phải tổng bằng không']
+  },
+  {
+    id: 44, cat: 'tam-ly',
+    vn: 'Nghịch lý kiểm soát', en: 'Control Paradox',
+    teaser: 'Doanh nhân kiểm soát ít hơn khi cố kiểm soát nhiều hơn — và kiểm soát nhiều hơn khi học cách buông bỏ đúng chỗ.',
+    detail: '<b>Nghịch lý kiểm soát</b>: doanh nhân muốn kiểm soát mọi thứ nhưng điều đó tạo ra tắc nghẽn, tiêu hao năng lượng và ngăn đội ngũ phát triển. Khi học cách <b>trao quyền thực sự</b> (<em>True Delegation</em>) — không giao việc mà giao kết quả và tin tưởng — doanh nhân thực ra có nhiều ảnh hưởng hơn vì tổ chức hoạt động độc lập và hiệu quả hơn.',
+    example: '<b>Richard Branson</b> vận hành hơn 400 công ty Virgin nhưng không "chạy" bất kỳ công ty nào trong số đó hàng ngày. Ông tuyển CEO giỏi, đặt mục tiêu rõ ràng, và trao quyền thực sự. Sự "buông" này cho phép ông dành thời gian cho những quyết định chiến lược thực sự quan trọng.',
+    models: ['Lý thuyết trao quyền (Empowerment Theory)', 'Quản lý bằng mục tiêu (MBO)', 'Nhân rộng qua con người']
+  },
+  {
+    id: 45, cat: 'tam-ly',
+    vn: 'Bản sắc doanh nhân', en: 'Entrepreneurial Identity',
+    teaser: 'Cách bạn định nghĩa mình là ai — không phải nghề nghiệp mà là cách tiếp cận thế giới.',
+    detail: 'Khi <b>bản sắc doanh nhân</b> trở thành phần cốt lõi của con người bạn — không phải chỉ là công việc — hành vi thay đổi căn bản. Bạn không chỉ "làm kinh doanh", bạn "sống kinh doanh": luôn quan sát cơ hội, luôn thử nghiệm, luôn học hỏi. <b>James Clear</b> (Atomic Habits): "Mỗi hành động là một phiếu bầu cho loại người bạn muốn trở thành."',
+    example: '<b>Nguyễn Hà Đông</b> (Flappy Bird) không coi mình là người tạo ra một trò chơi thành công — ông coi mình là người làm game, người liên tục thử nghiệm ý tưởng. Điều đó giải thích tại sao sau Flappy Bird, ông tiếp tục tạo ra nhiều game khác thay vì nghỉ ngơi trên thành công.',
+    models: ['Lý thuyết bản sắc (Identity Theory)', 'Nguyên tắc Atomic Habits', 'Tự khái niệm (Self-Concept)']
+  },
+  // ====== TÀI CHÍNH & ĐÒN BẨY ======
+  {
+    id: 46, cat: 'tai-chinh',
+    vn: 'Đòn bẩy tài chính', en: 'Financial Leverage',
+    teaser: 'Sử dụng vốn vay để khuếch đại lợi nhuận — công cụ mạnh mẽ nhưng cũng khuếch đại rủi ro.',
+    detail: '<b>Đòn bẩy tài chính</b> cho phép kiểm soát tài sản lớn hơn vốn mình có. Ví dụ: đặt cọc 20% mua bất động sản, kiếm lời 100% từ vốn đặt cọc nếu tài sản tăng 20%. Nhưng ngược lại — nếu giảm 20%, mất toàn bộ vốn. Nguyên tắc: <b>đòn bẩy chỉ dùng khi có dòng tiền đủ để trả nợ trong kịch bản xấu nhất</b>, và chỉ dùng để mua tài sản sinh lời — không phải để chi tiêu.',
+    example: '<b>Berkshire Hathaway</b> của Warren Buffett sử dụng phí bảo hiểm thu trước khi chi bồi thường ("float") như đòn bẩy tài chính chi phí thấp. Đây là lý do tỷ suất sinh lời của Berkshire vượt trội thị trường trong 60 năm.',
+    models: ['Hệ số nợ/vốn (D/E Ratio)', 'Phân tích đòn bẩy hoạt động', 'Quản lý rủi ro (Risk Management)']
+  },
+  {
+    id: 47, cat: 'tai-chinh',
+    vn: 'Dòng tiền tự do', en: 'Free Cash Flow',
+    teaser: 'Tiền mặt thực sự còn lại sau khi trả hết chi phí vận hành và đầu tư — sức khỏe thực sự của doanh nghiệp.',
+    detail: '<b>Dòng tiền tự do</b> (FCF) là sự thật tài chính: <em>Lợi nhuận kế toán có thể bị điều chỉnh bởi kế toán, nhưng tiền mặt thì không.</em> Công thức: FCF = Dòng tiền hoạt động - Chi phí vốn. Doanh nhân và nhà đầu tư giỏi nhìn vào FCF hơn lợi nhuận ròng. Doanh nghiệp có FCF dương có thể tái đầu tư, trả cổ tức, mua lại cổ phần hoặc trả nợ mà không cần vay thêm.',
+    example: '<b>Apple</b> tạo ra hơn 100 tỷ USD FCF mỗi năm — không phải vì họ bán nhiều nhất mà vì mô hình kinh doanh có biên lợi nhuận cao và quản lý vốn lưu động xuất sắc. FCF này cho phép họ mua lại cổ phần và trả cổ tức mà vẫn đầu tư R&D.',
+    models: ['Phân tích chiết khấu dòng tiền (DCF)', 'EBITDA vs FCF', 'Chỉ số vốn lưu động']
+  },
+  {
+    id: 48, cat: 'tai-chinh',
+    vn: 'Chi phí cơ hội', en: 'Opportunity Cost',
+    teaser: 'Giá trị của lựa chọn tốt nhất bạn từ bỏ khi đưa ra một quyết định — chi phí thực sự ẩn trong mọi lựa chọn.',
+    detail: '<b>Chi phí cơ hội</b> là nền tảng của tư duy kinh tế. Khi bạn quyết định A, bạn từ bỏ B, C, D. Chi phí thực sự của A là giá trị của lựa chọn tốt nhất bạn từ chối (B). Doanh nhân tính chi phí cơ hội của <b>mọi quyết định về thời gian, vốn và sự chú ý</b>. Câu hỏi quan trọng nhất: "Nếu không làm việc này, tôi có thể làm gì tốt hơn với nguồn lực đó?"',
+    example: 'Bạn có 1 tỷ đồng. Bỏ gửi ngân hàng lãi 6%/năm. Chi phí cơ hội của mọi khoản đầu tư khác là 6%/năm. Nếu mở quán cà phê lãi 10% thì thực ra bạn chỉ thắng 4% nhưng chịu rủi ro và thời gian cao hơn nhiều. Khi tính đúng chi phí cơ hội, nhiều quyết định "kiếm tiền" trở nên kém hấp dẫn hơn.',
+    models: ['Kinh tế học cơ bản', 'Phân tích chi phí lợi ích', 'Tư duy biên tế (Marginal Thinking)']
+  },
+  {
+    id: 49, cat: 'tai-chinh',
+    vn: 'Tăng trưởng kép', en: 'Compound Growth',
+    teaser: 'Lãi sinh lãi — hiệu ứng tăng trưởng theo cấp số nhân khi lợi nhuận được tái đầu tư liên tục theo thời gian.',
+    detail: '<b>Albert Einstein</b> được cho là đã gọi lãi kép là "kỳ quan thứ tám của thế giới". Tăng trưởng kép không chỉ áp dụng cho tiền tệ — mà cho kiến thức, mạng lưới quan hệ, danh tiếng và kỹ năng. <b>Quy tắc 72</b>: chia 72 cho tỷ lệ tăng trưởng hàng năm để biết số năm cần thiết để nhân đôi. Ví dụ: 10%/năm → 7,2 năm để nhân đôi.',
+    example: 'Đầu tư 100 triệu đồng với lãi 15%/năm: sau 5 năm có 201 triệu, sau 10 năm có 405 triệu, sau 20 năm có 1,6 tỷ — <b>không làm thêm gì, chỉ để yên và tái đầu tư</b>. Nhưng nếu rút lãi ra tiêu mỗi năm: sau 20 năm chỉ có 100 triệu gốc và 300 triệu tiền lãi đã tiêu.',
+    models: ['Toán học lãi kép', 'Quy tắc 72', 'Đường cong J (J-Curve)']
+  },
+  {
+    id: 50, cat: 'tai-chinh',
+    vn: 'Điểm hòa vốn', en: 'Break-Even Point',
+    teaser: 'Mức doanh thu tối thiểu doanh nghiệp cần đạt để không lỗ — cột mốc sống còn cần đạt đủ sớm.',
+    detail: '<b>Điểm hòa vốn</b> = Chi phí cố định / (Giá bán - Chi phí biến đổi mỗi đơn vị). Đây là câu hỏi đầu tiên một doanh nghiệp mới cần trả lời: bao nhiêu đơn vị cần bán để không lỗ? Phân tích này giúp doanh nhân hiểu đòn bẩy hoạt động: khi qua điểm hòa vốn, mỗi đơn vị thêm vào gần như thuần lợi nhuận vì chi phí cố định đã được trả.',
+    example: 'Một quán cà phê có chi phí cố định 50 triệu/tháng (mặt bằng, nhân viên, thiết bị). Mỗi ly cà phê bán 50.000đ với chi phí nguyên liệu 10.000đ. Điểm hòa vốn: 50 triệu / 40.000 = 1.250 ly/tháng ≈ 42 ly/ngày. Đó là con số tối thiểu cần đạt.',
+    models: ['Phân tích CVP (Chi phí-Khối lượng-Lợi nhuận)', 'Đòn bẩy hoạt động', 'Margin đóng góp (Contribution Margin)']
+  },
+  {
+    id: 51, cat: 'tai-chinh',
+    vn: 'Định giá dựa trên giá trị', en: 'Value-Based Pricing',
+    teaser: 'Định giá theo giá trị khách hàng nhận được — không phải theo chi phí sản xuất cộng thêm lợi nhuận.',
+    detail: '<b>Định giá dựa trên giá trị</b> là phương pháp định giá tinh vi nhất và có lợi nhất. Thay vì hỏi "Chi phí của tôi là bao nhiêu?", hỏi "Khách hàng sẵn sàng trả bao nhiêu?" và "Sản phẩm này tiết kiệm hay tạo ra bao nhiêu giá trị cho họ?" Nếu phần mềm của bạn giúp tiết kiệm 100 triệu/năm cho khách hàng, bạn có thể định giá 20-30 triệu/năm mà khách vẫn thấy rẻ.',
+    example: '<b>Salesforce</b> tính phí 150-300 USD/người dùng/tháng cho phần mềm CRM. Chi phí thực để phục vụ thêm một người dùng gần bằng không. Nhưng Salesforce biết phần mềm của họ giúp team sales tăng doanh thu 20-30% — vậy 150 USD/tháng là rất rẻ so với giá trị nhận được.',
+    models: ['Sẵn sàng trả (Willingness to Pay)', 'Thặng dư tiêu dùng (Consumer Surplus)', 'Phân khúc giá (Price Segmentation)']
+  },
+  {
+    id: 52, cat: 'tai-chinh',
+    vn: 'Cấu trúc vốn', en: 'Capital Structure',
+    teaser: 'Tỷ lệ giữa vốn chủ sở hữu và nợ — quyết định chiến lược quan trọng nhất về tài chính doanh nghiệp.',
+    detail: '<b>Cấu trúc vốn tối ưu</b> cân bằng giữa lợi ích của đòn bẩy tài chính (chi phí vốn thấp hơn, lá chắn thuế) và rủi ro phá sản khi tỷ lệ nợ quá cao. Không có công thức một chiều — phụ thuộc vào ngành, giai đoạn tăng trưởng, và độ ổn định của dòng tiền. Startup thường dùng vốn chủ sở hữu (ít rủi ro). Doanh nghiệp trưởng thành với dòng tiền ổn định có thể dùng nợ để tối ưu chi phí vốn.',
+    example: 'Công ty bất động sản thường vay 60-70% giá trị tài sản (đòn bẩy cao) vì tài sản ổn định và dễ thế chấp. Startup công nghệ thường không vay mà huy động vốn cổ phần vì chưa có tài sản cố định và dòng tiền chưa ổn định.',
+    models: ['Lý thuyết Modigliani-Miller', 'WACC (Chi phí vốn bình quân)', 'Lá chắn thuế từ nợ vay']
+  },
+  {
+    id: 53, cat: 'tai-chinh',
+    vn: 'Dòng tiền hoạt động', en: 'Operating Cash Flow',
+    teaser: 'Tiền mặt tạo ra từ hoạt động kinh doanh cốt lõi — thước đo quan trọng nhất về sức khỏe vận hành.',
+    detail: '<b>Dòng tiền hoạt động</b> (OCF) đo lường khả năng tạo tiền mặt từ nghiệp vụ chính: bán sản phẩm/dịch vụ và thu hồi tiền, sau khi trả hết chi phí vận hành. Khác với lợi nhuận kế toán (có thể âm khi tăng trưởng nhanh), OCF dương nghĩa là doanh nghiệp tự nuôi được bản thân. Nhiều startup thành công nhưng chết vì <b>thiếu tiền mặt dù có lợi nhuận trên giấy</b>.',
+    example: 'Công ty xây dựng ký hợp đồng 10 tỷ nhưng phải bỏ vốn 7 tỷ làm trước, thu tiền sau 6 tháng. Lợi nhuận kế toán: 3 tỷ. Dòng tiền hoạt động hiện tại: âm 7 tỷ. Nếu không có nguồn tiền bổ sung, công ty phá sản dù đang có lợi nhuận.',
+    models: ['Chu kỳ chuyển đổi tiền mặt (CCC)', 'Vốn lưu động (Working Capital)', 'Phân tích dòng tiền ba chiều']
+  },
+  {
+    id: 54, cat: 'tai-chinh',
+    vn: 'Đa dạng hóa nguồn thu', en: 'Revenue Diversification',
+    teaser: 'Không phụ thuộc vào một nguồn doanh thu duy nhất — xây dựng nhiều dòng thu nhập để giảm rủi ro.',
+    detail: '<b>Đa dạng hóa nguồn thu</b> là chiến lược phòng thủ quan trọng. Khi một nguồn thu bị ảnh hưởng (khủng hoảng, mất khách lớn, thay đổi quy định), các nguồn khác duy trì hoạt động. Nguyên tắc: không để một khách hàng đơn lẻ chiếm hơn 20-25% tổng doanh thu. Đa dạng hóa không chỉ là sản phẩm — còn là địa lý, kênh bán hàng và phân khúc khách hàng.',
+    example: '<b>Apple</b> đã chuyển từ doanh thu phụ thuộc 70% vào iPhone (rủi ro cao) sang cân bằng hơn giữa iPhone, Mac, iPad, Wearables và Services. Khi doanh số iPhone giảm 2019-2020, Services (App Store, iCloud, Apple Music) tăng mạnh bù lại.',
+    models: ['Lý thuyết danh mục Markowitz', 'Phân tích rủi ro tập trung', 'Chiến lược ma trận Ansoff']
+  },
+  {
+    id: 55, cat: 'tai-chinh',
+    vn: 'Phân tích kịch bản', en: 'Scenario Analysis',
+    teaser: 'Lập kế hoạch tài chính cho ba kịch bản: tốt nhất, trung bình và xấu nhất — để chuẩn bị cho mọi tình huống.',
+    detail: '<b>Phân tích kịch bản</b> không phải dự báo — là chuẩn bị. Doanh nhân giỏi không bao giờ chỉ lập kế hoạch theo kịch bản "dự kiến". Họ hỏi: "Nếu doanh thu chỉ đạt 50% kế hoạch, doanh nghiệp có sống sót không? Sống sót bao lâu? Cần làm gì ngay để ứng phó?" Kịch bản xấu nhất không phải để lo sợ — mà để <b>chuẩn bị trước khi nó xảy ra</b>.',
+    example: 'Trong đại dịch COVID-19 năm 2020, doanh nghiệp nào đã có phân tích kịch bản "doanh thu bằng không trong 3 tháng" đều phản ứng nhanh hơn và sống sót nhiều hơn. Không phải vì họ tiên đoán được đại dịch, mà vì họ đã nghĩ qua kịch bản tương tự.',
+    models: ['Phân tích độ nhạy (Sensitivity Analysis)', 'Quản lý rủi ro', 'Stress Testing']
+  },
+  {
+    id: 56, cat: 'tai-chinh',
+    vn: 'Vốn không pha loãng', en: 'Non-Dilutive Funding',
+    teaser: 'Nguồn vốn không yêu cầu nhượng cổ phần — giúp duy trì quyền kiểm soát doanh nghiệp.',
+    detail: '<b>Vốn không pha loãng</b> bao gồm: doanh thu từ khách hàng (tốt nhất), vay ngân hàng, tài trợ chính phủ, giải thưởng cuộc thi, và crowdfunding không chia cổ phần. Doanh nhân thông minh tối đa hóa vốn không pha loãng trước khi gọi vốn từ nhà đầu tư — vì mỗi vòng gọi vốn đều pha loãng cổ phần và giảm quyền kiểm soát.',
+    example: '<b>Basecamp</b> (phần mềm quản lý dự án) chưa bao giờ gọi vốn đầu tư bên ngoài. Họ xây từ doanh thu khách hàng ngay từ đầu. Hai nhà sáng lập vẫn sở hữu 100% công ty dù doanh nghiệp đạt hàng triệu USD doanh thu. Không phải con đường cho mọi startup, nhưng là con đường họ muốn đi.',
+    models: ['Bootstrapping', 'Quản lý bảng vốn (Cap Table)', 'Chiến lược thoát vốn (Exit Strategy)']
+  },
+  {
+    id: 57, cat: 'tai-chinh',
+    vn: 'Phân bổ vốn', en: 'Capital Allocation',
+    teaser: 'Nghệ thuật quyết định đồng vốn đi đâu để tạo ra lợi nhuận cao nhất trên vốn đầu tư.',
+    detail: '<b>Phân bổ vốn</b> là nhiệm vụ chiến lược số một của CEO/doanh nhân. Mỗi đồng có thể đi vào: tái đầu tư vào tăng trưởng kinh doanh, mua lại doanh nghiệp khác (M&A), mua lại cổ phiếu, trả cổ tức, hoặc giữ tiền mặt dự phòng. Quyết định phân bổ đúng tạo ra giá trị khổng lồ; quyết định sai phá hủy vốn nhanh không kém.',
+    example: '<b>Warren Buffett</b> được coi là thiên tài phân bổ vốn: khi một ngành kinh doanh tạo tiền mặt nhưng không có cơ hội tái đầu tư tốt, ông rút tiền ra và phân bổ vào ngành khác có tỷ suất lợi nhuận cao hơn. Đây là lý do Berkshire mua bảo hiểm, đường sắt, năng lượng — những ngành sinh dòng tiền ổn định.',
+    models: ['ROIC (Lợi nhuận trên vốn đầu tư)', 'Hurdle Rate', 'NPV và IRR']
+  },
+  {
+    id: 58, cat: 'tai-chinh',
+    vn: 'Tiết kiệm đường băng', en: 'Runway Management',
+    teaser: 'Số tháng doanh nghiệp có thể hoạt động với tiền mặt hiện có trước khi cần doanh thu hoặc vốn mới.',
+    detail: '<b>Đường băng</b> (<em>Runway</em>) là tài sản sống còn của startup: = Tiền mặt hiện có / Tốc độ đốt tiền (<em>Burn Rate</em>) hàng tháng. Startup nên duy trì ít nhất 12-18 tháng đường băng. Khi còn 6 tháng, cần ngay lập tức gọi vốn hoặc cắt giảm chi phí — quá muộn để hành động từ tốn. Quản lý đường băng không phải về tiết kiệm — mà về <b>chi tiêu đúng chỗ để tạo ra tiến bộ đo được</b>.',
+    example: 'Startup A có 3 tỷ tiền mặt và đốt 500 triệu/tháng = 6 tháng đường băng. Đây là vùng nguy hiểm. Họ cần ngay: cắt giảm chi phí không thiết yếu để kéo dài đường băng, hoặc tăng tốc tìm kiếm doanh thu, hoặc bắt đầu đàm phán vốn mới — ba con đường này phải làm song song.',
+    models: ['Burn Rate', 'Phân tích Kohort (Cohort Analysis)', 'Chỉ số sức khỏe tài chính startup']
+  },
+  {
+    id: 59, cat: 'tai-chinh',
+    vn: 'Lợi nhuận biên', en: 'Profit Margin',
+    teaser: 'Tỷ lệ lợi nhuận trên doanh thu — thước đo hiệu quả kinh doanh và sức mạnh định giá.',
+    detail: 'Có nhiều loại <b>biên lợi nhuận</b>: <b>Biên gộp</b> (Doanh thu - COGS) / Doanh thu, <b>Biên EBITDA</b>, <b>Biên ròng</b> (sau tất cả chi phí và thuế). Biên gộp cao nhất có nghĩa mô hình kinh doanh có sức mạnh định giá và cấu trúc chi phí tốt. Phần mềm: biên gộp 80-90%. Bán lẻ: 20-30%. Nhà hàng: 5-10%. Hiểu ngành của mình so sánh với chuẩn (<em>Benchmark</em>) là điểm khởi đầu của cải thiện.',
+    example: '<b>Nvidia</b> đạt biên lợi nhuận ròng 55% vào năm 2023 vì chip AI của họ là sản phẩm không thể thiếu và không có đủ đối thủ cạnh tranh. Khi bạn có sản phẩm thiết yếu và khả năng cung cấp bị hạn chế, biên lợi nhuận trở nên phi thường.',
+    models: ['Phân tích DuPont', 'Cấu trúc chi phí', 'Sức mạnh định giá (Pricing Power)']
+  },
+  {
+    id: 60, cat: 'tai-chinh',
+    vn: 'Tài sản vô hình', en: 'Intangible Assets',
+    teaser: 'Thương hiệu, bằng sáng chế, dữ liệu, văn hóa công ty — những tài sản không nhìn thấy nhưng tạo ra phần lớn giá trị doanh nghiệp.',
+    detail: 'Trong nền kinh tế tri thức, <b>tài sản vô hình</b> chiếm 80-90% giá trị doanh nghiệp hàng đầu — nhưng không xuất hiện trên bảng cân đối kế toán truyền thống. Các loại: <b>Tài sản quan hệ</b> (thương hiệu, mạng lưới), <b>Tài sản năng lực</b> (quy trình, bí quyết), <b>Tài sản pháp lý</b> (bằng sáng chế, thương hiệu đăng ký). Doanh nhân đầu tư vào tài sản vô hình đang đầu tư vào nền tảng lợi thế cạnh tranh dài hạn.',
+    example: '<b>Coca-Cola</b> có hơn 50% giá trị doanh nghiệp nằm trong thương hiệu — một tài sản vô hình thuần túy. Nếu một ngày họ mất nhà máy và công thức, họ có thể xây lại. Nếu mất thương hiệu, họ sẽ không thể phục hồi.',
+    models: ['Định giá thương hiệu (Brand Valuation)', 'Kinh tế học tri thức', 'Kế toán vô hình (Intangible Accounting)']
+  },
+  // ====== CHIẾN LƯỢC ======
+  {
+    id: 61, cat: 'chien-luoc',
+    vn: 'Chiến lược Đại dương Xanh', en: 'Blue Ocean Strategy',
+    teaser: 'Tạo ra thị trường mới chưa có đối thủ thay vì cạnh tranh khốc liệt trong thị trường đã chật ních.',
+    detail: '<b>Kim & Mauborgne</b> (INSEAD): Đại dương đỏ là thị trường hiện tại — đầy đối thủ, cạnh tranh giảm giá, lợi nhuận co hẹp. Đại dương xanh là thị trường mới tạo ra — không cạnh tranh trực tiếp vì không ai ở đó. Công cụ: <b>Khung Loại bỏ-Giảm bớt-Tăng thêm-Tạo mới</b> (Eliminate-Reduce-Raise-Create Canvas). Câu hỏi: Tôi có thể loại bỏ thứ gì ngành này coi là hiển nhiên? Tôi có thể tạo ra thứ gì ngành này chưa bao giờ cung cấp?',
+    example: '<b>Cirque du Soleil</b> không cạnh tranh với xiếc truyền thống (thú vật, hề, giá rẻ). Họ kết hợp xiếc với nghệ thuật biểu diễn cao cấp, bỏ thú vật, thêm cốt truyện và âm nhạc — tạo ra thể loại mới, bán vé đắt gấp 5 lần và có khách hàng mới hoàn toàn.',
+    models: ['Chiến lược Đại dương Xanh Kim & Mauborgne', 'Khung ERRC', 'Đổi mới giá trị (Value Innovation)']
+  },
+  {
+    id: 62, cat: 'chien-luoc',
+    vn: 'Lợi thế cạnh tranh bền vững', en: 'Sustainable Competitive Advantage',
+    teaser: 'Thứ khiến doanh nghiệp của bạn hơn đối thủ một cách liên tục và khó sao chép theo thời gian.',
+    detail: '<b>Lợi thế cạnh tranh bền vững</b> phải thỏa mãn bốn tiêu chí (Khung VRIO): <b>Valuable</b> (tạo ra giá trị), <b>Rare</b> (hiếm), <b>Inimitable</b> (khó sao chép), <b>Organized</b> (tổ chức khai thác được). Nhiều doanh nghiệp nghĩ mình có lợi thế nhưng thực ra chỉ có <b>lợi thế tạm thời</b> — và thị trường sẽ xóa bỏ nó nhanh chóng.',
+    example: '<b>Amazon Prime</b> kết hợp giao hàng nhanh + streaming + cloud storage + giảm giá = bộ lợi ích khó sao chép vì cần đồng thời hệ thống logistics toàn cầu, studio nội dung và hạ tầng điện toán đám mây. Đối thủ có thể sao chép một phần, nhưng khó sao chép toàn bộ.',
+    models: ['Khung VRIO Barney', 'Nguồn lực và năng lực (Resource-Based View)', 'Hào ngăn cách kinh tế']
+  },
+  {
+    id: 63, cat: 'chien-luoc',
+    vn: 'Chiến lược tiến vào thị trường', en: 'Go-to-Market Strategy',
+    teaser: 'Kế hoạch cụ thể về cách đưa sản phẩm đến tay khách hàng: kênh nào, thông điệp nào, đối tượng nào trước.',
+    detail: '<b>GTM Strategy</b> không phải là marketing — đó là kiến trúc tổng thể của việc ra thị trường. Ba câu hỏi cốt lõi: <b>Ai là khách hàng lý tưởng đầu tiên?</b> (Ideal Customer Profile - ICP), <b>Thông điệp nào sẽ chạm đến họ?</b> (Messaging), và <b>Kênh nào hiệu quả nhất để tiếp cận họ?</b> (Channel). Sai lầm phổ biến: cố tiếp cận tất cả mọi người và không tiếp cận được ai.',
+    example: '<b>Zoom</b> không cố bán cho tất cả doanh nghiệp ngay từ đầu. Họ nhắm vào một ICP cụ thể: doanh nghiệp SMB có đội nhóm từ xa, bắt đầu với freemium viral trong tổ chức. Khi một người dùng trải nghiệm cuộc gọi chất lượng tốt, họ mời đồng nghiệp — và Zoom lan rộng từ bên trong.',
+    models: ['Ideal Customer Profile (ICP)', 'Phân tích kênh phân phối', 'Chiến lược viral vs paid growth']
+  },
+  {
+    id: 64, cat: 'chien-luoc',
+    vn: 'Định vị thị trường', en: 'Market Positioning',
+    teaser: 'Cách doanh nghiệp muốn được nhớ đến trong tâm trí khách hàng so với đối thủ cạnh tranh.',
+    detail: '<b>Định vị</b> là cuộc chiến trong tâm trí khách hàng. <b>Al Ries và Jack Trout</b> (Positioning): "Bạn không thể thay đổi nhận thức — bạn phải làm việc với nhận thức." Bản đồ định vị: vẽ trục X và Y với hai thuộc tính quan trọng nhất, đặt mình và đối thủ lên bản đồ, tìm vùng chưa ai chiếm. Định vị không phải là tuyên bố — đó là thực tế nhận thức trong đầu khách hàng.',
+    example: '<b>Volvo</b> = An toàn. <b>BMW</b> = Niềm vui lái xe. <b>Mercedes</b> = Sang trọng. Ba thương hiệu xe đức cùng phân khúc cao cấp nhưng định vị hoàn toàn khác nhau trong đầu người tiêu dùng. Điều đó cho phép cả ba cùng tồn tại và phát triển mà không cạnh tranh trực tiếp.',
+    models: ['Bản đồ nhận thức (Perceptual Map)', 'Lý thuyết định vị Ries & Trout', 'Xây dựng thương hiệu chiến lược']
+  },
+  {
+    id: 65, cat: 'chien-luoc',
+    vn: 'Ưu tiên chiến lược', en: 'Strategic Prioritization',
+    teaser: 'Nghệ thuật chọn ra 3-5 điều quan trọng nhất và nói không với mọi thứ còn lại.',
+    detail: '<b>Chiến lược thực sự là về việc nói không</b> — Steve Jobs. Doanh nhân và tổ chức thường làm quá nhiều, phân tán nguồn lực và không làm gì thực sự xuất sắc. Ma trận <b>Eisenhower</b> (Quan trọng × Cấp bách) và khung <b>OKR</b> (Mục tiêu & Kết quả đo được) là công cụ phổ biến. Nguyên tắc: nếu tất cả đều ưu tiên, không có gì là ưu tiên.',
+    example: '<b>Apple năm 1997</b> khi Jobs trở lại: 350 sản phẩm trong danh mục. Jobs cắt xuống còn 10. Ông vẽ bảng 2x2: (Desktop/Portable) × (Consumer/Professional) = 4 sản phẩm chính. Tập trung triệt để đó biến Apple từ bờ vực phá sản thành doanh nghiệp có giá trị nhất thế giới.',
+    models: ['Ma trận Eisenhower', 'OKR (John Doerr)', 'Nguyên lý Pareto 80/20']
+  },
+  {
+    id: 66, cat: 'chien-luoc',
+    vn: 'Lợi thế người đến đầu', en: 'First-Mover Advantage',
+    teaser: 'Lợi thế khi gia nhập thị trường trước đối thủ: chiếm tâm trí khách hàng, xây dựng mạng lưới và học hỏi sớm.',
+    detail: '<b>Lợi thế người đến đầu</b> thực sự tồn tại — nhưng không phải lúc nào cũng là lợi thế lớn. Google không phải công cụ tìm kiếm đầu tiên (AltaVista, Yahoo đến trước). Facebook không phải mạng xã hội đầu tiên (MySpace đến trước). Đôi khi <b>người đến thứ hai</b> học từ lỗi của người đầu tiên và thắng. Lợi thế người đến đầu thực sự mạnh khi kết hợp với hiệu ứng mạng lưới và chi phí chuyển đổi cao.',
+    example: '<b>Amazon</b> không phải nhà bán sách online đầu tiên, nhưng thực hiện tốt nhất và mở rộng nhanh nhất. <b>Uber</b> không phải gọi xe công nghệ đầu tiên (Hailo, Sidecar đến trước). Lợi thế thực sự đến từ <b>thực thi xuất sắc</b>, không chỉ từ việc đến đầu.',
+    models: ['Lý thuyết gia nhập thị trường', 'Hiệu ứng mạng lưới', 'Khóa chặt khách hàng (Customer Lock-in)']
+  },
+  {
+    id: 67, cat: 'chien-luoc',
+    vn: 'Tư duy bậc hai', en: 'Second-Order Thinking',
+    teaser: 'Nghĩ xa hơn hệ quả trực tiếp — hỏi "Và rồi điều gì xảy ra?" nhiều lần liên tiếp.',
+    detail: '<b>Howard Marks</b> (Oaktree Capital): "Tư duy bậc nhất đơn giản và hời hợt. Tư duy bậc hai sâu và phức tạp." Ví dụ: "Cổ phiếu này tốt — mua." (bậc 1). "Cổ phiếu này tốt và mọi người đều nghĩ vậy, vì vậy giá đã phản ánh điều đó — cần tìm thứ tốt mà ít người nhận ra." (bậc 2). Trong kinh doanh: chính sách giảm giá tốt cho doanh số ngắn hạn (bậc 1) nhưng đào tạo khách hàng chờ sale và phá hủy biên lợi nhuận dài hạn (bậc 2).',
+    example: 'Khi <b>Uber</b> ra mắt tại một thành phố: bậc 1 — taxi truyền thống mất khách. Bậc 2 — ít người cần xe hơi riêng → bất động sản tái cấu trúc (ít bãi đỗ xe hơn). Bậc 3 — thành phố có thể thiết kế lại không gian đô thị. Ai thấy được bậc 3 sẽ có cơ hội kinh doanh mà người chỉ thấy bậc 1 bỏ qua.',
+    models: ['Tư duy hệ thống', 'Lý thuyết trò chơi (Game Theory)', 'Hiệu ứng cánh bướm']
+  },
+  {
+    id: 68, cat: 'chien-luoc',
+    vn: 'Phân tích đối thủ', en: 'Competitive Intelligence',
+    teaser: 'Thu thập và phân tích thông tin về đối thủ một cách hệ thống — để ra quyết định chiến lược tốt hơn.',
+    detail: '<b>Phân tích cạnh tranh</b> không phải là do thám — đó là nghiên cứu công khai và có hệ thống. Nguồn thông tin: website, sản phẩm, giá cả, tin tuyển dụng (phản ánh ưu tiên chiến lược), đánh giá của khách hàng, báo chí, hội nghị ngành. Khung phân tích: <b>Năm lực lượng Porter</b> — đối thủ hiện tại, đối thủ tiềm năng, sản phẩm thay thế, sức mạnh nhà cung cấp, sức mạnh khách hàng.',
+    example: 'Khi <b>Samsung</b> chuẩn bị ra mắt dòng điện thoại mới, đội phân tích cạnh tranh của họ đọc hàng nghìn đánh giá 1-2 sao của sản phẩm Apple để tìm điểm đau khách hàng Apple chưa giải quyết được. Đây là nguồn cảm hứng cho tính năng của Galaxy.',
+    models: ['Năm lực lượng Porter', 'Khung SWOT', 'Phân tích khoảng cách (Gap Analysis)']
+  },
+  {
+    id: 69, cat: 'chien-luoc',
+    vn: 'Chiến lược đại dương đỏ', en: 'Red Ocean Strategy',
+    teaser: 'Cạnh tranh trực tiếp trong thị trường hiện có — đòi hỏi thực thi xuất sắc hơn đối thủ trên mọi khía cạnh.',
+    detail: 'Không phải mọi doanh nghiệp đều có thể tạo ra đại dương xanh. Trong đại dương đỏ, chiến thắng đến từ: <b>Chi phí thấp nhất</b> (Walmart, IKEA), <b>Khác biệt hóa</b> (Apple, Tesla), hoặc <b>Tập trung vào ngách</b> (Rolls-Royce, Rolex). Chiến lược đại dương đỏ không xấu — nó đòi hỏi kỷ luật thực thi cao và sự cải tiến liên tục.',
+    example: '<b>Vinamilk</b> không tạo ra ngành sữa mới — họ cạnh tranh trong đại dương đỏ bằng cách xây dựng chuỗi cung ứng từ trang trại, kiểm soát chất lượng nghiêm ngặt, phân phối rộng khắp và thương hiệu tin cậy. Thực thi xuất sắc trong đại dương đỏ tạo ra vị trí dẫn đầu bền vững.',
+    models: ['Ba chiến lược chung Porter', 'Quản lý chuỗi cung ứng', 'Kỷ luật thực thi (Execution Discipline)']
+  },
+  {
+    id: 70, cat: 'chien-luoc',
+    vn: 'Chiến lược nền tảng vs. đường ống', en: 'Platform vs. Pipeline Strategy',
+    teaser: 'Đường ống tạo ra và phân phối giá trị một chiều. Nền tảng tạo ra giá trị bằng cách kết nối các nhóm bên ngoài.',
+    detail: '<b>Pipeline</b> (đường ống): Sản xuất → Phân phối → Tiêu dùng. Chi phí tăng tuyến tính theo quy mô. Ví dụ: nhà máy, chuỗi siêu thị. <b>Platform</b> (nền tảng): Người tạo nội dung ↔ Nền tảng ↔ Người tiêu dùng. Chi phí tăng chậm hơn nhiều so với tăng trưởng nhờ hiệu ứng mạng lưới. Mọi ngành đang được nền tảng hóa — doanh nhân hỏi: ngành của tôi có thể chuyển từ đường ống sang nền tảng không?',
+    example: '<b>Encyclopedia Britannica</b> (đường ống): nghiên cứu → viết → in → bán. <b>Wikipedia</b> (nền tảng): kết nối người viết và người đọc. Wikipedia đánh bại Britannica không phải vì nội dung tốt hơn ban đầu, mà vì mô hình nền tảng tăng trưởng nhanh theo cấp số nhân.',
+    models: ['Kinh tế học nền tảng', 'Lý thuyết thị trường hai chiều Rochet & Tirole', 'Hiệu ứng mạng lưới']
+  },
+  {
+    id: 71, cat: 'chien-luoc',
+    vn: 'Kế hoạch dự phòng', en: 'Contingency Planning',
+    teaser: 'Chuẩn bị kế hoạch hành động cụ thể cho các tình huống bất ngờ trước khi chúng xảy ra.',
+    detail: '<b>Kế hoạch dự phòng</b> không phải bi quan — đó là trách nhiệm của nhà lãnh đạo. Quy trình: (1) Xác định các rủi ro lớn nhất, (2) Đánh giá xác suất và tác động, (3) Chuẩn bị kế hoạch phản ứng cụ thể cho từng rủi ro. Khi sự kiện xảy ra, bạn không phải nghĩ từ đầu — chỉ cần kích hoạt kế hoạch đã chuẩn bị.',
+    example: 'Ngân hàng luôn có quy trình <b>"kế hoạch tiếp nối hoạt động"</b> (BCP) chi tiết cho từng kịch bản: ngập lụt, mất điện, tấn công mạng, mất nhân sự chủ chốt. Đây là lý do ngân hàng hiếm khi "đóng cửa" khi thảm họa xảy ra — họ đã tập dượt kịch bản đó hàng năm.',
+    models: ['Quản lý rủi ro doanh nghiệp (ERM)', 'Phân tích kịch bản', 'Lý thuyết Antifragile']
+  },
+  {
+    id: 72, cat: 'chien-luoc',
+    vn: 'Chiến lược thoát ra', en: 'Exit Strategy',
+    teaser: 'Kế hoạch khi nào và bằng cách nào nhà đầu tư hoặc doanh nhân thoát khỏi doanh nghiệp để thu về giá trị.',
+    detail: '<b>Chiến lược thoát ra</b> không phải là từ bỏ — đó là kết thúc có kế hoạch của một giai đoạn. Các hình thức: <b>IPO</b> (lên sàn chứng khoán), <b>M&A</b> (bán cho doanh nghiệp lớn hơn), <b>Mua lại quản lý</b> (MBO), <b>Chuyển giao thế hệ</b> (gia đình), hoặc <b>đóng cửa có kiểm soát</b>. Doanh nhân thông minh nghĩ về exit từ ngày đầu — vì chiến lược exit ảnh hưởng đến mọi quyết định trong quá trình xây dựng.',
+    example: '<b>Zuckerberg</b> và các nhà đầu tư Facebook lên kế hoạch IPO từ nhiều năm trước khi thực hiện. IPO 2012 ở mức 16 tỷ USD huy động vốn, tạo thanh khoản cho nhà đầu tư ban đầu và cho phép nhân viên chốt cổ phiếu — một exit thành công cho nhiều bên.',
+    models: ['Bảng vốn (Cap Table)', 'Định giá doanh nghiệp', 'Thỏa thuận cổ đông (SHA)']
+  },
+  {
+    id: 73, cat: 'chien-luoc',
+    vn: 'Tư duy ngược', en: 'Inversion Thinking',
+    teaser: 'Thay vì hỏi "Làm sao tôi thành công?", hỏi "Làm sao tôi thất bại?" rồi tránh những điều đó.',
+    detail: '<b>Đảo ngược</b> (<em>Inversion</em>) là kỹ thuật tư duy của <b>Charlie Munger</b>: "Đảo ngược, luôn luôn đảo ngược." Thay vì chỉ tìm con đường thành công, hãy xác định tất cả những thứ có thể giết chết doanh nghiệp và đảm bảo không làm những thứ đó. Phòng bệnh hơn chữa bệnh. Trong thiết kế sản phẩm: thay vì hỏi "khách hàng muốn gì?", hỏi "điều gì khiến khách hàng ghét chúng ta?" rồi loại bỏ những thứ đó.',
+    example: '<b>Warren Buffett</b> không hỏi "Làm sao tôi trở nên giàu?" Ông hỏi "Điều gì khiến người giàu trở nên nghèo?" rồi tránh: vay tiền để đầu tư cổ phiếu, đầu cơ ngắn hạn, thiếu đa dạng hóa, và cạo vét từng xu trong thương vụ. Tránh sai lầm lớn là chiến lược đầu tư của ông.',
+    models: ['Tư duy đảo ngược Munger', 'Pre-Mortem Analysis', 'Nguyên tắc tránh thảm họa']
+  },
+  {
+    id: 74, cat: 'chien-luoc',
+    vn: 'Bản đồ hành trình chiến lược', en: 'Strategic Roadmap',
+    teaser: 'Kế hoạch hành động có cột mốc rõ ràng từ hiện tại đến tầm nhìn dài hạn — dịch chiến lược thành hành động.',
+    detail: '<b>Lộ trình chiến lược</b> là cầu nối giữa tầm nhìn to lớn và công việc hàng ngày. Cấu trúc tốt: tầm nhìn 5 năm → mục tiêu 3 năm → OKR hàng năm → Sprint hàng quý → việc làm hàng tuần. Mỗi cấp độ phải <b>nhất quán với nhau</b>: công việc tuần này phải dẫn đến kết quả quý này, phải dẫn đến mục tiêu năm này. Nếu không thấy sợi chỉ kết nối, chiến lược đang rời rạc.',
+    example: '<b>Spotify</b> có lộ trình công khai: từ nhạc → podcast → audiobook → nội dung âm thanh tổng hợp. Mỗi giai đoạn dùng hạ tầng và người dùng từ giai đoạn trước làm đòn bẩy. Đây không phải ngẫu hứng — là chiến lược có cột mốc rõ ràng.',
+    models: ['OKR (Objectives & Key Results)', 'Agile Roadmap', 'Khung chiến lược ba chân trời']
+  },
+  {
+    id: 75, cat: 'chien-luoc',
+    vn: 'Phân tích SWOT', en: 'SWOT Analysis',
+    teaser: 'Điểm mạnh, điểm yếu bên trong và cơ hội, mối đe dọa bên ngoài — khung chẩn đoán chiến lược cơ bản.',
+    detail: '<b>SWOT</b> (Strengths, Weaknesses, Opportunities, Threats) hữu ích khi dùng đúng cách: không phải liệt kê ngẫu nhiên mà phải <b>kết nối chéo</b>. Điểm mạnh + Cơ hội = Chiến lược tấn công. Điểm mạnh + Mối đe dọa = Chiến lược phòng thủ. Điểm yếu + Cơ hội = Chiến lược cải thiện. Điểm yếu + Mối đe dọa = Chiến lược né tránh. Nhiều doanh nghiệp làm SWOT xong để đó — sai lầm lớn.',
+    example: '<b>Nokia</b> năm 2007: điểm mạnh (thương hiệu, phân phối, bằng sáng chế), điểm yếu (phần mềm cứng nhắc), cơ hội (smartphone đang nổi), mối đe dọa (Apple, Android). Nếu kết nối chéo đúng, Nokia cần dùng thương hiệu mạnh để chiếm smartphone ngay lập tức. Họ không làm — và mất cả thị trường.',
+    models: ['Ma trận TOWS (SWOT mở rộng)', 'Khung phân tích cạnh tranh', 'Lập kế hoạch chiến lược']
+  },
+  // ====== LÃNH ĐẠO & ĐỘI NGŨ ======
+  {
+    id: 76, cat: 'lanh-dao',
+    vn: 'Tuyển dụng theo giá trị', en: 'Values-Based Hiring',
+    teaser: 'Tuyển người phù hợp với văn hóa và giá trị cốt lõi — không chỉ kỹ năng kỹ thuật.',
+    detail: '<b>Kỹ năng có thể dạy, giá trị thì không</b>. Doanh nhân thành công biết rằng sai lầm tuyển dụng là tốn kém nhất: người không phù hợp văn hóa phá hủy tinh thần đội nhóm, tốn chi phí sa thải và tuyển lại, và mang theo vết sẹo văn hóa. <b>Netflix</b>: "Chúng tôi không cần người giỏi — chúng tôi cần người xuất sắc AND phù hợp với văn hóa." Họ sẵn sàng trả đền bù cao để cho đi người xuất sắc về kỹ năng nhưng không phù hợp văn hóa.',
+    example: '<b>Zappos</b> có quy trình phỏng vấn hai vòng hoàn toàn tách biệt: vòng đánh giá kỹ năng và vòng đánh giá phù hợp văn hóa. Ứng viên qua vòng kỹ năng nhưng không qua vòng văn hóa bị từ chối dù giỏi đến đâu. Họ còn trả 2.000 USD cho nhân viên mới nào muốn nghỉ sau 4 tuần — để giữ lại những người thực sự muốn ở.',
+    models: ['Mô hình văn hóa tổ chức Schein', 'Lý thuyết tuyển dụng chặt chẽ', 'Quy trình phỏng vấn có cấu trúc']
+  },
+  {
+    id: 77, cat: 'lanh-dao',
+    vn: 'Lãnh đạo trao quyền', en: 'Empowerment Leadership',
+    teaser: 'Tạo điều kiện cho đội ngũ tự ra quyết định trong phạm vi được trao — tăng tốc độ và sự chủ động.',
+    detail: '<b>Lãnh đạo trao quyền</b> đòi hỏi: (1) <b>Mục tiêu rõ ràng</b> — mọi người biết "thắng" nghĩa là gì, (2) <b>Ranh giới rõ ràng</b> — họ biết quyền quyết định đến đâu, (3) <b>Nguồn lực đủ</b> — họ có thứ cần để thực hiện, (4) <b>Phản hồi nhanh</b> — họ biết mình đang làm tốt hay không. Thiếu một trong bốn yếu tố này, trao quyền trở thành bỏ mặc.',
+    example: '<b>Buurtzorg</b> (tổ chức điều dưỡng Hà Lan): không có quản lý cấp giữa, mỗi nhóm 12 y tá tự quản lý bệnh nhân, lịch trình và ngân sách của mình. Kết quả: chi phí chăm sóc thấp hơn 40%, nhân viên hài lòng hơn, chất lượng chăm sóc cao hơn — vì người gần bệnh nhân nhất được trao quyền quyết định.',
+    models: ['Lý thuyết trao quyền Spreitzer', 'Holocracy', 'Quản lý không cần quản lý (Manager-less)']
+  },
+  {
+    id: 78, cat: 'lanh-dao',
+    vn: 'Phản hồi triệt để', en: 'Radical Candor',
+    teaser: 'Nói thật với lòng quan tâm — không tàn nhẫn, không nịnh bợ, không né tránh.',
+    detail: '<b>Kim Scott</b> (Radical Candor): "Quan tâm cá nhân + Thách thức trực tiếp". Bốn góc phần tư: <b>Đồng cảm phá hoại</b> (quan tâm nhưng không nói thật), <b>Hung hăng khó chịu</b> (nói thật nhưng không quan tâm), <b>Giả tạo vô nghĩa</b> (không quan tâm và không nói thật), và <b>Thẳng thắn triệt để</b> (quan tâm VÀ nói thật). Lãnh đạo giỏi sống ở góc phần tư cuối — đây là văn hóa phản hồi tạo ra sự cải thiện liên tục.',
+    example: 'Tại <b>Google</b>, Sheryl Sandberg từng nói thẳng với Larry Page sau một buổi thuyết trình: "Nếu bạn nói \'ừm\' quá nhiều, mọi người sẽ không tin tưởng năng lực của bạn." Câu nói đó có thể gây khó chịu — nhưng đó là loại phản hồi giúp người khác phát triển.',
+    models: ['Khung Radical Candor Scott', 'Mô hình phản hồi SBI', 'Lý thuyết tâm lý an toàn Edmondson']
+  },
+  {
+    id: 79, cat: 'lanh-dao',
+    vn: 'Xây dựng văn hóa doanh nghiệp', en: 'Culture Building',
+    teaser: 'Hệ thống các giá trị, hành vi và niềm tin chung định hình cách mọi người ra quyết định khi không có ai nhìn.',
+    detail: '<b>Peter Drucker</b>: "Văn hóa ăn chiến lược vào bữa sáng." Văn hóa mạnh không phải là bảng giá trị treo tường — đó là những hành vi thực sự được thưởng phạt. Nếu bạn tuyên bố giá trị "trung thực" nhưng thưởng người nói những điều sếp muốn nghe, văn hóa thực sự của bạn là "nịnh hót". <b>Văn hóa = Những gì người ta làm khi không ai nhìn.</b>',
+    example: '<b>Amazon</b> có 16 nguyên tắc lãnh đạo (<em>Leadership Principles</em>) — nhưng không chỉ là khẩu hiệu. Mỗi buổi phỏng vấn, đánh giá hiệu suất, và họp chiến lược đều được đánh giá theo các nguyên tắc này. Đây là cách văn hóa trở thành hệ điều hành thực sự của tổ chức.',
+    models: ['Mô hình văn hóa Schein', 'Lý thuyết văn hóa Quinn', 'Nguyên tắc lãnh đạo Amazon']
+  },
+  {
+    id: 80, cat: 'lanh-dao',
+    vn: 'Quản lý hiệu suất', en: 'Performance Management',
+    teaser: 'Hệ thống đặt mục tiêu, đo lường và cải thiện năng lực của từng cá nhân và đội nhóm liên tục.',
+    detail: '<b>Quản lý hiệu suất</b> hiện đại không phải là đánh giá hàng năm — đó là vòng phản hồi liên tục. OKR (Objectives and Key Results) của Google: Mục tiêu đặt ra tham vọng, kết quả đo bằng số liệu cụ thể, đánh giá hàng quý. Nguyên tắc: <b>Đặt mục tiêu stretch</b> (kéo dài hơn khả năng hiện tại), <b>theo dõi tiến độ thường xuyên</b>, và <b>phân biệt rõ giữa đánh giá hiệu suất và phản hồi phát triển</b>.',
+    example: '<b>Google</b> đặt OKR với kỳ vọng đạt 60-70% — nếu đạt 100% nghĩa là mục tiêu không đủ tham vọng. Điều này tạo ra văn hóa đặt mục tiêu cao mà không sợ thất bại. Intel, LinkedIn, Twitter đều áp dụng OKR từ Google và thành công.',
+    models: ['OKR (John Doerr)', 'KPI vs OKR', 'Mô hình hiệu suất 9-ô']
+  },
+  {
+    id: 81, cat: 'lanh-dao',
+    vn: 'Mô hình phát triển đội nhóm', en: 'Team Development Model',
+    teaser: 'Các giai đoạn mà một đội nhóm mới đi qua để đạt hiệu suất cao — và cách lãnh đạo điều hướng từng giai đoạn.',
+    detail: '<b>Mô hình Tuckman</b>: Forming (hình thành) → Storming (xung đột) → Norming (chuẩn hóa) → Performing (hiệu suất cao) → Adjourning (kết thúc). Nhiều lãnh đạo sợ giai đoạn Storming (khi xung đột nổi lên) và cố dập tắt nó. Nhưng Storming là <b>cần thiết để làm rõ vai trò, quy trình và kỳ vọng</b> — đội nhóm không qua được Storming sẽ không bao giờ đạt Performing thực sự.',
+    example: 'Đội startup 5 người ban đầu: tất cả đều hòa thuận (Forming). Đến tháng 3, căng thẳng nổ ra về ai quyết định gì (Storming). Nhà sáng lập giỏi không dập tắt mà tổ chức buổi làm rõ vai trò và quyền quyết định. Sau đó (Norming), đội hoạt động trơn tru hơn bao giờ hết.',
+    models: ['Mô hình Tuckman', 'Lý thuyết lãnh đạo tình huống', 'Đội nhóm hiệu suất cao (High-Performance Team)']
+  },
+  {
+    id: 82, cat: 'lanh-dao',
+    vn: 'Giao tiếp chiến lược', en: 'Strategic Communication',
+    teaser: 'Khả năng truyền đạt tầm nhìn, chiến lược và kỳ vọng một cách rõ ràng, nhất quán và truyền cảm hứng.',
+    detail: '<b>Giao tiếp chiến lược</b> là năng lực quan trọng nhất thường bị đánh giá thấp của lãnh đạo. Nghiên cứu cho thấy CEO dành 70-80% thời gian giao tiếp — nhưng ít người được đào tạo bài bản về điều này. Nguyên tắc: <b>Nói đơn giản hơn bạn nghĩ là cần thiết</b>, <b>lặp lại thông điệp quan trọng nhiều lần hơn bạn nghĩ là cần</b>, và <b>dùng câu chuyện thay vì số liệu khi truyền cảm hứng</b>.',
+    example: '<b>Steve Jobs</b>: "Máy tính cầm tay với 1.000 bài hát trong túi bạn." Đây là giao tiếp chiến lược xuất sắc — ông không nói "iPod với bộ nhớ 5GB" (thông số kỹ thuật) mà dịch sang ngôn ngữ của người dùng (lợi ích cụ thể). Khách hàng ngay lập tức hiểu tại sao sản phẩm này thay đổi cuộc sống họ.',
+    models: ['Khung thang tóm tắt (Pyramid Principle)', 'Kể chuyện chiến lược (Strategic Storytelling)', 'Mô hình truyền thông SMCR']
+  },
+  {
+    id: 83, cat: 'lanh-dao',
+    vn: 'Quản lý sự thay đổi', en: 'Change Management',
+    teaser: 'Nghệ thuật dẫn dắt tổ chức qua những thay đổi lớn mà không mất đội ngũ hay văn hóa.',
+    detail: '<b>8 bước thay đổi Kotter</b>: Tạo cảm giác khẩn cấp → Xây liên minh hướng dẫn → Tầm nhìn chiến lược → Truyền đạt tầm nhìn → Xóa rào cản → Thắng ngắn hạn → Không buông → Nhúng vào văn hóa. Lý do 70% nỗ lực thay đổi thất bại: thiếu cảm giác khẩn cấp thực sự, liên minh lãnh đạo yếu, hoặc thông báo thay đổi nhưng không loại bỏ rào cản thực tế.',
+    example: '<b>IBM</b> chuyển từ phần cứng sang dịch vụ tư vấn những năm 1990 — một trong những thay đổi tổ chức lớn nhất lịch sử kinh doanh. CEO Lou Gerstner không chỉ thay đổi chiến lược mà thay đổi văn hóa: từ "bán phần cứng" sang "giải quyết vấn đề kinh doanh của khách hàng".',
+    models: ['8 bước Kotter', 'Đường cong thay đổi Kübler-Ross', 'Lý thuyết kháng cự thay đổi']
+  },
+  {
+    id: 84, cat: 'lanh-dao',
+    vn: 'Huấn luyện nội bộ', en: 'Internal Coaching',
+    teaser: 'Lãnh đạo đóng vai trò huấn luyện viên — đặt câu hỏi để phát triển tư duy thay vì chỉ đưa ra câu trả lời.',
+    detail: '<b>Mô hình lãnh đạo-huấn luyện viên</b>: thay vì trả lời câu hỏi của nhân viên ngay lập tức, lãnh đạo hỏi lại "Bạn nghĩ cách nào tốt nhất?" — buộc nhân viên tự suy nghĩ. Lợi ích: phát triển năng lực nhân viên nhanh hơn, tăng sự chủ động, và giải phóng lãnh đạo khỏi việc là "người trả lời tất cả câu hỏi". Câu hỏi huấn luyện cốt lõi: "Điều quan trọng nhất bạn đang đối mặt là gì? Bạn đã thử những gì? Điều gì ngăn bạn tiến về phía trước?"',
+    example: '<b>Google</b> đào tạo tất cả quản lý cấp cao thành "lãnh đạo-huấn luyện viên" theo chương trình "Project Oxygen". Kết quả đo được: đội nhóm được quản lý bởi lãnh đạo có kỹ năng huấn luyện tốt có hiệu suất cao hơn 30% và tỷ lệ giữ chân nhân tài cao hơn.',
+    models: ['GROW Coaching Model', 'Lý thuyết học người lớn (Andragogy)', 'Phản hồi phát triển (Developmental Feedback)']
+  },
+  {
+    id: 85, cat: 'lanh-dao',
+    vn: 'Quyết định nhóm', en: 'Group Decision Making',
+    teaser: 'Cơ chế đưa ra quyết định tập thể hiệu quả — tránh tư duy nhóm mà vẫn đạt đồng thuận đủ nhanh.',
+    detail: '<b>Tư duy nhóm</b> (<em>Groupthink</em>) xảy ra khi áp lực đồng thuận làm tê liệt tư duy phê phán. Đây là lý do nhiều quyết định tập thể tệ hơn quyết định cá nhân. Giải pháp: <b>Luật sư của quỷ</b> (<em>Devil\'s Advocate</em>) — chỉ định người có nhiệm vụ phản biện, <b>Nghĩ trước khi họp</b> — mọi người viết quan điểm riêng trước khi chia sẻ, <b>Phương pháp Delphi</b> — thu thập ý kiến ẩn danh.',
+    example: '<b>Jeff Bezos</b> tại Amazon có quy tắc "không PowerPoint" trong họp chiến lược — mọi người viết memo 6 trang và đọc im lặng đầu buổi họp. Điều này ngăn người trình bày xuất sắc thắng người có ý tưởng tốt hơn, và buộc mọi người suy nghĩ sâu trước khi tranh luận.',
+    models: ['Tư duy nhóm Janis', 'Phương pháp Delphi', 'Mô hình quyết định Vroom-Yetton']
+  },
+  // ====== ĐỔI MỚI & TĂNG TRƯỞNG ======
+  {
+    id: 86, cat: 'doi-moi',
+    vn: 'Chu trình Xây-Đo-Học', en: 'Build-Measure-Learn Loop',
+    teaser: 'Vòng lặp cốt lõi của Lean Startup: xây dựng nhanh, đo kết quả thực, học và điều chỉnh.',
+    detail: '<b>Eric Ries</b> (Lean Startup): thay vì xây dựng sản phẩm hoàn chỉnh rồi mới ra thị trường, doanh nhân nên <b>Xây</b> (sản phẩm tối thiểu khả thi — MVP), <b>Đo</b> (thu thập dữ liệu từ người dùng thực), rồi <b>Học</b> (rút ra insight để quyết định tiếp). Vòng lặp này càng nhanh, doanh nghiệp học được càng nhiều với chi phí thấp nhất. Mục tiêu: <b>giảm thiểu tổng thời gian trong vòng lặp</b>.',
+    example: '<b>Dropbox</b> không xây ứng dụng ngay. Đầu tiên là một video 3 phút mô tả sản phẩm chưa tồn tại. Hơn 75.000 người đăng ký danh sách chờ qua đêm. <b>Bằng chứng nhu cầu có trước khi xây sản phẩm</b> — đây là Build-Measure-Learn ở mức tinh tế nhất.',
+    models: ['Lean Startup Ries', 'MVP (Sản phẩm tối thiểu khả thi)', 'Giả thuyết kiểm chứng (Validated Learning)']
+  },
+  {
+    id: 87, cat: 'doi-moi',
+    vn: 'Tăng trưởng viral', en: 'Viral Growth',
+    teaser: 'Cơ chế tăng trưởng khi mỗi người dùng tự động giới thiệu người dùng mới — tạo ra tăng trưởng không cần chi phí marketing.',
+    detail: '<b>Hệ số viral</b> (K-factor) = Số người dùng mới từ mỗi người dùng hiện tại. Nếu K > 1: tăng trưởng cấp số nhân. Nếu K < 1: tăng trưởng tuyến tính. Thiết kế sản phẩm viral: <b>sản phẩm tốt hơn khi chia sẻ</b> (Google Docs), <b>cần người khác để dùng</b> (Zoom, WhatsApp), hoặc <b>tự quảng cáo khi sử dụng</b> (Hotmail "Gửi từ Hotmail" trong mỗi email).',
+    example: '<b>Hotmail</b> 1996: thêm dòng chữ "Nhận email miễn phí tại Hotmail.com" vào cuối mỗi email. Chi phí: gần bằng không. Kết quả: từ 0 lên 12 triệu người dùng trong 18 tháng — khi đó là tăng trưởng viral nhanh nhất lịch sử kinh doanh.',
+    models: ['Hệ số Viral (K-factor)', 'Vòng lặp tăng trưởng (Growth Loop)', 'Thiết kế sản phẩm viral']
+  },
+  {
+    id: 88, cat: 'doi-moi',
+    vn: 'Thay đổi hướng đi', en: 'Pivot',
+    teaser: 'Thay đổi chiến lược cơ bản dựa trên học hỏi từ thị trường — không phải thất bại mà là định hướng lại thông minh.',
+    detail: '<b>Pivot</b> là một trong những kỹ năng quan trọng nhất của doanh nhân: biết khi nào cần giữ nguyên và khi nào cần thay đổi căn bản. Không phải mọi thứ cần thay — pivot thường giữ lại một điều (sản phẩm, thị trường, đội ngũ) và thay đổi điều còn lại. Dấu hiệu cần pivot: học hỏi nhiều nhưng các chỉ số không cải thiện, giả thuyết cốt lõi đã được chứng minh sai.',
+    example: '<b>Instagram</b> ban đầu là Burbn — một ứng dụng check-in như Foursquare nhưng cũng cho chia sẻ ảnh. Người dùng chỉ dùng tính năng ảnh. Nhóm sáng lập pivot: bỏ tất cả tính năng khác, chỉ giữ lại chia sẻ ảnh với filter đẹp. Một năm sau, Facebook mua lại với giá 1 tỷ USD.',
+    models: ['Phân loại Pivot của Ries', 'Tín hiệu pivot (Pivot Indicators)', 'Kiên trì có nguyên tắc (Principled Persistence)']
+  },
+  {
+    id: 89, cat: 'doi-moi',
+    vn: 'Đổi mới tăng dần', en: 'Incremental Innovation',
+    teaser: 'Cải thiện liên tục sản phẩm hiện có — nhỏ nhưng nhất quán theo thời gian tạo ra lợi thế lớn.',
+    detail: '<b>Đổi mới tăng dần</b> không hào nhoáng như đổi mới đột phá nhưng thực ra tạo ra phần lớn giá trị trong kinh doanh. Nguyên lý <b>Kaizen</b> của người Nhật: liên tục cải tiến nhỏ trong từng khâu. Khi kết hợp 1% cải thiện mỗi ngày trong 365 ngày: (1.01)^365 = 37.78 — tăng gần 38 lần. Ngược lại, xấu đi 1%/ngày trong một năm: chỉ còn 3% ban đầu.',
+    example: '<b>Toyota</b> không phát minh xe hơi, không phát minh robot lắp ráp. Nhưng hệ thống sản xuất Toyota (TPS) tích lũy hàng nghìn cải tiến nhỏ trong 50 năm — từ vị trí đặt dụng cụ đến cách gấp tài liệu. Kết quả: hiệu quả sản xuất cao hơn đối thủ Mỹ 2-3 lần.',
+    models: ['Kaizen (Triết học cải tiến Nhật Bản)', 'Hệ thống sản xuất tinh gọn (Lean)', 'Vòng lặp PDCA Deming']
+  },
+  {
+    id: 90, cat: 'doi-moi',
+    vn: 'Đổi mới đột phá', en: 'Radical Innovation',
+    teaser: 'Thay đổi căn bản cách một ngành hoạt động — tạo ra sản phẩm hoặc mô hình kinh doanh hoàn toàn mới.',
+    detail: '<b>Đổi mới đột phá</b> thường đến từ ngoài ngành vì người trong ngành bị hạn chế bởi tư duy hiện tại. Đặc điểm: <b>không cải thiện sản phẩm cũ mà thay thế nó hoàn toàn</b>, ban đầu bị thị trường từ chối hoặc coi là đồ chơi, tạo ra thị trường mới không cạnh tranh trực tiếp với đương nhiệm. Rủi ro cao hơn đổi mới tăng dần nhưng phần thưởng cũng cao hơn cấp số nhân.',
+    example: '<b>Smartphone</b> không phải điện thoại tốt hơn — đó là một thiết bị hoàn toàn mới thay thế điện thoại, máy ảnh, GPS, máy nghe nhạc, ví tiền và hàng trăm thiết bị khác cùng lúc. iPhone không cải thiện Nokia — iPhone làm Nokia lỗi thời.',
+    models: ['Thuyết đổi mới gián đoạn Christensen', 'Đường cong S', 'Lý thuyết khuếch tán đổi mới Rogers']
+  },
+  {
+    id: 91, cat: 'doi-moi',
+    vn: 'Tư duy thiết kế', en: 'Design Thinking',
+    teaser: 'Quy trình giải quyết vấn đề lấy con người làm trung tâm: Đồng cảm → Định nghĩa → Ý tưởng → Nguyên mẫu → Kiểm tra.',
+    detail: '<b>Design Thinking</b> của IDEO và Stanford d.school đặt người dùng vào trung tâm mọi quyết định thiết kế. Năm bước: <b>Empathize</b> (quan sát và hiểu người dùng), <b>Define</b> (xác định vấn đề thực sự), <b>Ideate</b> (tạo ra nhiều ý tưởng), <b>Prototype</b> (xây mẫu nhanh), <b>Test</b> (thử nghiệm với người dùng). Không phải quy trình tuyến tính — là vòng lặp, quay lại bất kỳ bước nào khi cần.',
+    example: '<b>IDEO</b> được ABC News thuê để thiết kế lại xe đẩy siêu thị. Thay vì hỏi "xe đẩy tốt hơn trông như thế nào?", họ đến siêu thị quan sát người mua sắm. Họ phát hiện: người ta ghét không thể thấy trẻ em, bị mất giỏ, và xe bánh hay kẹt. Giải pháp được thiết kế từ những quan sát đó — không phải từ phòng họp.',
+    models: ['Design Thinking Stanford d.school', 'Human-Centered Design', 'Nguyên mẫu nhanh (Rapid Prototyping)']
+  },
+  {
+    id: 92, cat: 'doi-moi',
+    vn: 'Sản phẩm tối thiểu khả thi', en: 'Minimum Viable Product (MVP)',
+    teaser: 'Phiên bản sản phẩm đủ để kiểm chứng giả thuyết cốt lõi — không phải phiên bản hoàn chỉnh nhỏ nhất.',
+    detail: '<b>MVP không phải sản phẩm tệ nhất có thể làm</b> — đó là <b>thí nghiệm đủ để học điều quan trọng nhất</b>. MVP tốt: kiểm chứng giả thuyết rủi ro nhất, tiếp cận đúng khách hàng mục tiêu, tạo ra dữ liệu thực, và có thể xây trong vài tuần. MVP sai: quá nhiều tính năng (xây những thứ không kiểm chứng gì), quá ít giá trị (không ai muốn dùng), hoặc nhắm sai đối tượng.',
+    example: '<b>Zappos</b> (giày online): trước khi đầu tư vào kho hàng và hệ thống, Nick Swinmurn chụp ảnh giày tại cửa hàng địa phương và đăng online. Khi ai đó mua, ông ra cửa hàng mua giày, gửi đi. MVP không có hệ thống gì — chỉ kiểm chứng: người ta có mua giày online không? Câu trả lời là có.',
+    models: ['Lean Startup', 'Concierge MVP', 'Wizard of Oz MVP']
+  },
+  {
+    id: 93, cat: 'doi-moi',
+    vn: 'Mở rộng quy mô', en: 'Scaling',
+    teaser: 'Tăng trưởng doanh thu nhanh hơn tăng chi phí — đòi hỏi hệ thống, quy trình và công nghệ có thể nhân bản.',
+    detail: '<b>Mở rộng quy mô</b> là thách thức khác hoàn toàn so với <b>xây dựng ban đầu</b>. Điều hiệu quả với 10 khách hàng thường thất bại với 1.000. Ba trụ cột của scaling: <b>Hệ thống và quy trình</b> (tự động hóa những gì lặp lại), <b>Con người đúng</b> (tuyển người biết scaling, không chỉ người biết xây), và <b>Công nghệ đúng</b> (hạ tầng có thể chịu tải). Sai lầm phổ biến: cố mở rộng trước khi mô hình kinh doanh đã được chứng minh.',
+    example: '<b>Uber</b> khi mở rộng ra thành phố mới: không xây lại từ đầu mà copy nguyên mô hình vận hành từ thành phố trước. Nhưng phải điều chỉnh cho quy định địa phương và thói quen người dùng. Scaling thành công = nhân bản hệ thống + thích ứng cục bộ.',
+    models: ['Lý thuyết tăng trưởng Blitzscaling Reid Hoffman', 'Lợi thế kinh tế theo quy mô', 'Kiến trúc hạ tầng có thể mở rộng']
+  },
+  {
+    id: 94, cat: 'doi-moi',
+    vn: 'Thử nghiệm A/B', en: 'A/B Testing',
+    teaser: 'Kiểm chứng khoa học trong kinh doanh: so sánh hai phiên bản để xác định cái nào hiệu quả hơn với dữ liệu thực.',
+    detail: '<b>Thử nghiệm A/B</b> là nền tảng của tăng trưởng dựa trên dữ liệu. Nguyên tắc: chia người dùng thành hai nhóm ngẫu nhiên, cho nhóm A thấy phiên bản hiện tại, nhóm B thấy phiên bản mới, đo kết quả và quyết định dựa trên dữ liệu. <b>Điều quan trọng</b>: chỉ thay đổi một biến mỗi lần, đảm bảo mẫu đủ lớn để có ý nghĩa thống kê, và quyết định trước sẽ đo gì.',
+    example: '<b>Amazon</b> chạy hàng nghìn thử nghiệm A/B đồng thời: từ màu nút "Mua ngay", vị trí đánh giá sản phẩm, đến cách hiển thị giá. Mỗi cải thiện nhỏ 0.1% trong tỷ lệ chuyển đổi trên nền tảng hàng tỷ giao dịch = hàng trăm triệu USD doanh thu thêm.',
+    models: ['Thống kê suy diễn', 'Tư duy thực nghiệm', 'Tối ưu hóa tỷ lệ chuyển đổi (CRO)']
+  },
+  {
+    id: 95, cat: 'doi-moi',
+    vn: 'Tăng trưởng dựa trên sản phẩm', en: 'Product-Led Growth (PLG)',
+    teaser: 'Sản phẩm tự bán chính nó — người dùng trải nghiệm giá trị trước khi mua, và giới thiệu cho người khác.',
+    detail: '<b>PLG</b> là chiến lược tăng trưởng mà sản phẩm là công cụ bán hàng chính: freemium, dùng thử không cần thẻ tín dụng, thời gian đạt giá trị đầu tiên (<em>Time-to-Value</em>) dưới 5 phút. Đây là mô hình ngược với bán hàng truyền thống (sale-led): thay vì thuyết phục mua trước dùng sau, cho dùng trước thuyết phục sau. Thành công khi sản phẩm đủ tốt để tự nói thay cho nhân viên bán hàng.',
+    example: '<b>Figma</b> (thiết kế giao diện): free cho cá nhân, có phí khi cộng tác nhóm. Designer dùng Figma miễn phí, thấy tốt, giới thiệu cho công ty. Công ty bắt đầu trả tiền. Figma không cần đội ngũ bán hàng lớn vì sản phẩm tự tìm đến khách hàng và tự chứng minh giá trị.',
+    models: ['Product-Led Growth Openers', 'Thời gian đến giá trị (TTV)', 'Vòng lặp tăng trưởng sản phẩm']
+  },
+  {
+    id: 96, cat: 'doi-moi',
+    vn: 'Khuếch đại qua cộng đồng', en: 'Community-Led Growth',
+    teaser: 'Xây dựng cộng đồng người dùng gắn bó — họ trở thành kênh marketing, hỗ trợ và phát triển sản phẩm không công.',
+    detail: '<b>Cộng đồng</b> là hào ngăn cách mạnh nhất trong thời đại mạng xã hội. Khi khách hàng không chỉ dùng sản phẩm mà <b>thuộc về một cộng đồng</b> quanh sản phẩm đó, chi phí chuyển đổi tăng đột biến — vì rời bỏ sản phẩm là rời bỏ cộng đồng. Cộng đồng tốt: trao cho thành viên bản sắc, kết nối, kiến thức và cảm giác thuộc về điều gì đó lớn hơn.',
+    example: '<b>Harley-Davidson</b> không chỉ bán xe máy — họ bán <b>bản sắc</b>. Câu lạc bộ Harley Owners Group (HOG) có hàng triệu thành viên trả tiền để thuộc về cộng đồng — chưa tính tiền mua xe. Người đi Harley có tattoo logo, mặc áo thương hiệu, gặp gỡ cuối tuần. Cộng đồng này là hào ngăn cách không đối thủ nào sao chép được.',
+    models: ['Kinh tế học cộng đồng', 'Lý thuyết bản sắc xã hội', 'Vòng lặp tăng trưởng cộng đồng']
+  },
+  {
+    id: 97, cat: 'doi-moi',
+    vn: 'Mô hình tăng trưởng', en: 'Growth Model',
+    teaser: 'Cơ chế cụ thể giải thích tại sao và bằng cách nào doanh nghiệp tăng trưởng — không phải hy vọng mà là hệ thống.',
+    detail: '<b>Mô hình tăng trưởng</b> là bản đồ nhân quả: hành động nào tạo ra người dùng mới, người dùng mới làm gì tạo ra doanh thu, doanh thu tái đầu tư vào đâu để tạo ra người dùng mới. Doanh nghiệp không biết mô hình tăng trưởng của mình thường tăng trưởng ngẫu nhiên và không thể tái lặp. Ba vòng lặp tăng trưởng phổ biến: <b>Viral</b> (người dùng mời người dùng), <b>Trả phí</b> (doanh thu trả tiền quảng cáo), <b>Nội dung</b> (nội dung thu hút tự nhiên).',
+    example: '<b>Duolingo</b>: người học → học tập streak hàng ngày → chia sẻ thành tích lên mạng xã hội → bạn bè tò mò → tải Duolingo → người học mới. Đây là vòng lặp viral. Cộng với SEO mạnh (bài học ngôn ngữ rank cao Google). Hai vòng lặp này tạo ra tăng trưởng 500 triệu người dùng mà không cần quảng cáo nhiều.',
+    models: ['Vòng lặp tăng trưởng (Growth Loop)', 'Phễu AARRR (Acquisition, Activation, Retention, Revenue, Referral)', 'Mô hình tăng trưởng bền vững']
+  },
+  {
+    id: 98, cat: 'doi-moi',
+    vn: 'Khuếch đại từng bước', en: 'Ladder of Scale',
+    teaser: 'Chiến lược mở rộng từ nhỏ đến lớn, từ đơn giản đến phức tạp — mỗi bước cung cấp vốn, học hỏi và đòn bẩy cho bước tiếp theo.',
+    detail: '<b>Thang mở rộng</b> là cách các doanh nghiệp lớn xây dựng: không nhảy thẳng vào thị trường đại trà mà đi từng bước. Bước 1: phục vụ nhóm nhỏ cực kỳ tốt. Bước 2: dùng bằng chứng đó mở rộng sang nhóm lớn hơn. Bước 3: tối ưu hóa để phục vụ thị trường đại chúng. Ở mỗi bước, doanh nghiệp kiếm tiền để tài trợ cho bước tiếp theo và học điều cần biết để thực hiện bước đó.',
+    example: '<b>Amazon</b>: bắt đầu với sách (dễ giao, tiêu chuẩn hóa, ít hỏng) → điện tử tiêu dùng → quần áo → hàng tươi sống → mọi thứ. Mỗi ngành mới học hỏi từ logistics và data của ngành trước. Họ không cố làm mọi ngành cùng một lúc — một bước một.',
+    models: ['Chiến lược thâm nhập thị trường', 'Cây phát triển (Growth Tree)', 'Nguyên lý bước chân trong cửa (Foot-in-the-Door)']
+  },
+  {
+    id: 99, cat: 'doi-moi',
+    vn: 'Tích lũy lợi thế', en: 'Compounding Advantage',
+    teaser: 'Lợi thế cạnh tranh tích lũy theo thời gian: mỗi năm dẫn đầu tạo ra lợi thế cho năm tiếp theo — tách biệt dần khỏi đối thủ.',
+    detail: '<b>Lợi thế tích lũy</b> là lý do một số doanh nghiệp dẫn đầu không bao giờ để mất ngôi vị — và lý do kẻ đến sau rất khó bắt kịp. Cơ chế: dữ liệu nhiều hơn → AI tốt hơn → trải nghiệm người dùng tốt hơn → người dùng nhiều hơn → dữ liệu nhiều hơn. Hoặc: thương hiệu mạnh hơn → chi phí thu hút thấp hơn → biên lợi nhuận cao hơn → đầu tư thương hiệu nhiều hơn → thương hiệu mạnh hơn. Vòng phản hồi tự khuếch đại.',
+    example: '<b>Google</b> xử lý 8,5 tỷ tìm kiếm mỗi ngày, mỗi tìm kiếm dạy AI của họ điều gì đó. Đối thủ xử lý ít hơn → học chậm hơn → chất lượng kết quả thấp hơn → ít người dùng hơn → học chậm hơn. Lợi thế dữ liệu của Google ngày càng lớn, không phải vì Google cố gắng nhiều hơn mà vì vòng phản hồi tự khuếch đại.',
+    models: ['Vòng phản hồi dương (Positive Feedback Loop)', 'Lợi thế tích lũy Bezos', 'Lý thuyết đường cong kinh nghiệm']
+  },
+  {
+    id: 100, cat: 'doi-moi',
+    vn: 'Tầm nhìn mười năm', en: 'Ten-Year Vision',
+    teaser: 'Bức tranh rõ ràng về thế giới và vị trí doanh nghiệp trong 10 năm tới — không dự báo mà là định hướng.',
+    detail: '<b>Tầm nhìn dài hạn</b> không phải dự báo — đó là cam kết với hướng đi và nguồn gốc của mọi quyết định chiến lược. Tầm nhìn 10 năm tốt: đủ xa để tạo ra những thay đổi căn bản, đủ cụ thể để định hướng quyết định, và đủ truyền cảm hứng để thu hút nhân tài tốt nhất. Nhà nghiên cứu <b>Jim Collins</b>: "BHAG" — Big Hairy Audacious Goal (Mục tiêu To lớn, Táo bạo, Đầy tham vọng).',
+    example: '<b>Microsoft năm 1975</b>: "Một máy tính trong mỗi ngôi nhà và trên mỗi bàn làm việc." Vào thời điểm đó, điều này điên khùng — máy tính to bằng phòng khách và cực kỳ đắt. Nhưng tầm nhìn này định hướng mọi quyết định của Gates và Allen trong 20 năm tiếp theo và trở thành sự thật vào thập niên 1990.',
+    models: ['BHAG (Jim Collins)', 'Tầm nhìn chiến lược vs Sứ mệnh', 'Lý thuyết trò chơi vô hạn Simon Sinek']
+  }
+];
+
+const CAT_COLORS = {
+  'co-hoi': 'cat-co-hoi',
+  'mo-hinh': 'cat-mo-hinh',
+  'tam-ly': 'cat-tam-ly',
+  'tai-chinh': 'cat-tai-chinh',
+  'chien-luoc': 'cat-chien-luoc',
+  'lanh-dao': 'cat-lanh-dao',
+  'doi-moi': 'cat-doi-moi'
+};
+const CAT_LABELS = {
+  'co-hoi': '🔭 Nhìn thấy cơ hội',
+  'mo-hinh': '⚙️ Mô hình kinh doanh',
+  'tam-ly': '🧠 Tâm lý & Mindset',
+  'tai-chinh': '💰 Tài chính & Đòn bẩy',
+  'chien-luoc': '♟️ Chiến lược',
+  'lanh-dao': '🦁 Lãnh đạo & Đội ngũ',
+  'doi-moi': '🚀 Đổi mới & Tăng trưởng'
+};
+const PRINCIPLES = {
+  'co-hoi': 'Doanh nhân không chờ cơ hội — họ nhìn thấy nó ẩn trong những vấn đề mà người khác muốn trốn tránh.',
+  'mo-hinh': 'Mô hình kinh doanh là kiến trúc của cách doanh nghiệp tạo ra, phân phối và giữ lại giá trị — đây là xương sống của mọi quyết định.',
+  'tam-ly': 'Thứ phân biệt doanh nhân không phải ý tưởng hay vốn — mà là cách họ xử lý sự không chắc chắn và thất bại.',
+  'tai-chinh': 'Tiền không phải mục tiêu — là nhiên liệu. Hiểu dòng chảy của tiền là hiểu quy luật của kinh doanh.',
+  'chien-luoc': 'Chiến lược không phải về việc làm mọi thứ tốt hơn — mà là về việc chọn trận chiến nào đáng để thắng.',
+  'lanh-dao': 'Doanh nhân giỏi không làm mọi thứ một mình — họ xây đội ngũ có thể làm tốt hơn họ ở từng lĩnh vực.',
+  'doi-moi': 'Đổi mới không phải thiên tài bùng nổ một lần — đó là hệ thống thử nghiệm liên tục được thiết kế tốt.'
+};
+
+let currentFilter = 'all';
+let openCardId = null;
+
+function renderCards(cards) {
+  const grid = document.getElementById('cardGrid');
+  document.getElementById('countLabel').textContent = `${cards.length} khái niệm`;
+  if (!cards.length) {
+    grid.innerHTML = '<div class="no-results"><span>🔭</span>Không tìm thấy khái niệm nào</div>';
+    return;
+  }
+  grid.innerHTML = cards.map(c => `
+    <div class="card" id="card-${c.id}" onclick="toggleCard(${c.id})">
+      <div class="card-header">
+        <div class="card-num">#${String(c.id).padStart(2,'0')}</div>
+        <div class="card-titles">
+          <div class="card-vn">${c.vn}</div>
+          <div class="card-en">${c.en}</div>
+        </div>
+        <span class="card-tag ${CAT_COLORS[c.cat]}">${CAT_LABELS[c.cat].split(' ').slice(1).join(' ')}</span>
+        <div class="card-toggle">+</div>
+      </div>
+      <div class="card-teaser">${c.teaser}</div>
+      <div class="card-body">
+        <div class="card-body-inner">
+          <div class="body-section">
+            <h4>Diễn giải</h4>
+            <p>${c.detail}</p>
+          </div>
+          <div class="body-section">
+            <h4>Ví dụ thực tế</h4>
+            <div class="example-box">${c.example}</div>
+          </div>
+          <div class="mental-models">
+            <span class="mental-models-label">Mental Models liên quan:</span>
+            ${c.models.map(m => `<span class="mm-tag">${m}</span>`).join('')}
+          </div>
+          <div class="principle-strip">${PRINCIPLES[c.cat]}</div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function toggleCard(id) {
+  const el = document.getElementById(`card-${id}`);
+  if (!el) return;
+  if (openCardId === id) {
+    el.classList.remove('open');
+    openCardId = null;
+  } else {
+    if (openCardId) {
+      const prev = document.getElementById(`card-${openCardId}`);
+      if (prev) prev.classList.remove('open');
+    }
+    el.classList.add('open');
+    openCardId = id;
+    setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
+  }
+}
+
+function setFilter(cat, btn) {
+  currentFilter = cat;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  openCardId = null;
+  applyFilters();
+}
+
+function filterCards() { openCardId = null; applyFilters(); }
+
+function applyFilters() {
+  const q = document.getElementById('searchInput').value.toLowerCase().trim();
+  let filtered = CARDS;
+  if (currentFilter !== 'all') filtered = filtered.filter(c => c.cat === currentFilter);
+  if (q) filtered = filtered.filter(c =>
+    c.vn.toLowerCase().includes(q) ||
+    c.en.toLowerCase().includes(q) ||
+    c.teaser.toLowerCase().includes(q) ||
+    c.detail.toLowerCase().includes(q)
+  );
+  renderCards(filtered);
+}
+
+renderCards(CARDS);
+</script>
+</body>
+</html>
